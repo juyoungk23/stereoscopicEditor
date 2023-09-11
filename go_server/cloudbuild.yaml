@@ -7,4 +7,3 @@ steps:
     args: ["compute", "ssh", "unity-test", "--command", "chmod +x ~/server.go"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["compute", "ssh", "unity-test", "--command", "nohup ~/server.go &"]
-# test
