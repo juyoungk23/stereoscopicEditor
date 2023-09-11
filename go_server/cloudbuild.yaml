@@ -1,6 +1,7 @@
 steps:
-  - name: "gcr.io/cloud-builders/go"
-    args: ["build", "-o", "server.go", "./simple_api.go"]
+  - name: 'gcr.io/cloud-builders/go'
+  env: ['PROJECT_ROOT=go_server']
+  args: ['build', '-o', 'server.go', './simple_api.go']
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["compute", "scp", "server.go", "unity-test:~/"]
   - name: "gcr.io/cloud-builders/gcloud"
