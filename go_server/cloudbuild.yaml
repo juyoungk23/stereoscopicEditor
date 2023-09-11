@@ -1,12 +1,12 @@
 steps:
   - name: "gcr.io/cloud-builders/go"
     env: ["PROJECT_ROOT=go_server"]
-    args: ["build", "-o", "server.go", "./simple_api.go"]
+    args: ["build", "-o", "server", "go_server/simple_api.go"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "scp", "server.go", "unity-test:~/"]
+    args: ["compute", "scp", "go_server/server", "unity-test:~/"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "ssh", "unity-test", "--command", "chmod +x ~/server.go"]
+    args: ["compute", "ssh", "unity-test", "--command", "chmod +x ~/server"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "ssh", "unity-test", "--command", "nohup ~/server.go &"]
+    args: ["compute", "ssh", "unity-test", "--command", "nohup ~/server &"]
 options:
   logging: CLOUD_LOGGING_ONLY
