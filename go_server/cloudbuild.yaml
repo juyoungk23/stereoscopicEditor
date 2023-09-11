@@ -1,9 +1,9 @@
 steps:
   - name: "gcr.io/cloud-builders/go"
     env: ["PROJECT_ROOT=go_server"]
-    args: ["build", "-o", "server.go", "./simple_api.go"]
+    args: ["build", "-o", "server", "go_server/simple_api.go"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "scp", "--zone=us-west2-a", "server.go", "unity-test:~/"]
+    args: ["compute", "scp", "go_server/server", "unity-test:~/"]
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
@@ -12,7 +12,7 @@ steps:
         "--zone=us-west2-a",
         "unity-test",
         "--command",
-        "chmod +x ~/server.go",
+        "chmod +x ~/server",
       ]
   - name: "gcr.io/cloud-builders/gcloud"
     args:
@@ -22,7 +22,7 @@ steps:
         "--zone=us-west2-a",
         "unity-test",
         "--command",
-        "nohup ~/server.go &",
+        "nohup ~/server &",
       ]
 options:
   logging: CLOUD_LOGGING_ONLY
