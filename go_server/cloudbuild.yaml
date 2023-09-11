@@ -3,7 +3,14 @@ steps:
     env: ["PROJECT_ROOT=go_server"]
     args: ["build", "-o", "server", "go_server/simple_api.go"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "scp", "go_server/server", "unity-test:~/"]
+    args:
+      [
+        "compute",
+        "scp",
+        "--zone=us-west2-a",
+        "go_server/server",
+        "unity-test:~/",
+      ]
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
