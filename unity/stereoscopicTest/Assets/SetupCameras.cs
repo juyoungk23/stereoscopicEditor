@@ -31,7 +31,7 @@ public class SetupCameras : MonoBehaviour
     void UpdateEyePositions()
     {
         // Update the position of each camera based on new eyeSeparation
-        leftEye.transform.localPosition = new Vector3(-eyeSeparation / 2, 0, 0);
-        rightEye.transform.localPosition = new Vector3(eyeSeparation / 2, 0, 0);
+        leftEye.transform.localPosition = new Vector3(-eyeSeparation / 2, 0, -1);
+        rightEye.transform.localPosition = new Vector3(eyeSeparation / 2, 0, -1);
     }
 }

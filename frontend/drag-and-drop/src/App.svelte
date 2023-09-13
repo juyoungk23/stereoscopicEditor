@@ -7,7 +7,7 @@
   let isDragging = false;
   let canvasWidth = 800;
   let canvasHeight = 600;
-  let depthFactor = 150;
+  let depthFactor = 50;
 
   onMount(() => {
     const fetchBoxes = async () => {
@@ -135,13 +135,6 @@
     window.addEventListener("mouseup", handleMouseUp);
   }
 
-  async function updateText(id, text) {
-    const box = boxes.find((b) => b.id === id);
-    if (box) {
-      sendData(id, box.x, box.y, box.depth, text);
-    }
-  }
-
   function handleEdit(event) {
     const id = event.detail;
     editingBoxId = id;
@@ -159,29 +152,9 @@
     editingBoxId = -1;
   }
 
-  function handleDelete(event) {
-    const id = event.detail;
-    boxes = boxes.filter((box) => box.id !== id);
-    async function deleteData(id) {
-      const response = await fetch(
-        `http://35.215.89.200:8080/handleUpdate?id=${id}`,
-        {
-          method: "DELETE",
-        }
-      );
-      if (response.ok) {
-        console.log(`Deleted entry with ID: ${id}`);
-      } else {
-        console.log("Failed to delete entry");
-      }
-    }
-
-    deleteData();
-  }
-
   async function deleteData(event) {
     const id = event.detail;
-
+    boxes = boxes.filter((box) => box.id !== id);
     const response = await fetch(
       `http://35.215.89.200:8080/handleUpdate?id=${id}`,
       {
@@ -199,7 +172,7 @@
 <div class="container">
   <DepthList
     {boxes}
-    depthFactor={2}
+    {depthFactor}
     on:depthchange={handleDepthChange}
     on:edit={handleEdit}
     on:delete={deleteData}

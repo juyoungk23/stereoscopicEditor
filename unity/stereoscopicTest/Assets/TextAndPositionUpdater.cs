@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
-using TMPro;  // Import TextMeshPro Namespace
+using TMPro;
 
 [System.Serializable]
 public class TextEntry
@@ -17,15 +17,15 @@ public class TextEntry
 [System.Serializable]
 public class TextResponse
 {
-    public List<TextEntry> entries;  // Make sure this field name matches the JSON field name ("entries" instead of "texts")
+    public List<TextEntry> entries;
 }
 
 public class TextAndPositionUpdater : MonoBehaviour
 {
     public GameObject textPrefab;
-    public Transform canvasTransform; // Reference to Canvas transform
+    public Transform canvasTransform;
     private Dictionary<int, GameObject> textObjects = new Dictionary<int, GameObject>();
-    private string url = "http://35.215.89.200:8080/handleUpdate"; // Replaced with your new Go server URL ("/handleUpdate")
+    private string url = "http://35.215.89.200:8080/handleUpdate";
 
     void Start()
     {
@@ -38,42 +38,50 @@ public class TextAndPositionUpdater : MonoBehaviour
         {
             UnityWebRequest www = UnityWebRequest.Get(url);
             yield return www.SendWebRequest();
-
             string receivedText = www.downloadHandler.text;
-            Debug.Log("Raw response: " + receivedText);  // Log raw response for debugging
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                Debug.Log("Error: " + www.error + ", Status Code: " + www.responseCode);
+                Debug.Log("Error: " + www.error);
             }
             else
             {
                 TextResponse response = JsonUtility.FromJson<TextResponse>(receivedText);
 
-                if (response.entries == null || response.entries.Count == 0)
-                {
-                    Debug.Log("No texts received from server.");
-                }
-                else
+                // List to keep track of processed IDs
+                List<int> processedIds = new List<int>();
+
+                if (response.entries != null && response.entries.Count > 0)
                 {
                     foreach (var entry in response.entries)
                     {
                         GameObject textObj;
                         if (!textObjects.TryGetValue(entry.id, out textObj))
                         {
-                            textObj = Instantiate(textPrefab, canvasTransform); // Instantiate as child of Canvas
+                            textObj = Instantiate(textPrefab, canvasTransform);
                             textObjects[entry.id] = textObj;
                         }
 
-                        // Update Position and Depth
-                        textObj.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(entry.x, entry.y, entry.depth); // Use RectTransform for UI elements
-
-                        // Update Text
-                        TextMeshProUGUI textComponent = textObj.GetComponent<TextMeshProUGUI>();  // Changed to TextMeshProUGUI
+                        textObj.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(entry.x, entry.y, entry.depth);
+                        TextMeshProUGUI textComponent = textObj.GetComponent<TextMeshProUGUI>();
                         if (textComponent != null)
                         {
                             textComponent.text = entry.text;
                         }
+
+                        // Add ID to processed IDs list
+                        processedIds.Add(entry.id);
+                    }
+                }
+
+                // Delete GameObjects that are not in the processed list
+                List<int> keys = new List<int>(textObjects.Keys);
+                foreach (int key in keys)
+                {
+                    if (!processedIds.Contains(key))
+                    {
+                        Destroy(textObjects[key]);
+                        textObjects.Remove(key);
                     }
                 }
             }
