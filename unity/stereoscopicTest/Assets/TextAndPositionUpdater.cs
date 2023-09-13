@@ -25,7 +25,7 @@ public class TextAndPositionUpdater : MonoBehaviour
     public GameObject textPrefab;
     public Transform canvasTransform; // Reference to Canvas transform
     private Dictionary<int, GameObject> textObjects = new Dictionary<int, GameObject>();
-    private string url = "http://35.215.112.100:8080/handleUpdate"; // Replaced with your new Go server URL ("/handleUpdate")
+    private string url = "http://35.215.89.200:8080/handleUpdate"; // Replaced with your new Go server URL ("/handleUpdate")
 
     void Start()
     {

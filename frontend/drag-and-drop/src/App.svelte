@@ -10,6 +10,25 @@
   let depthFactor = 150;
 
   onMount(() => {
+    const fetchBoxes = async () => {
+      // Fetch existing boxes from server
+      try {
+        const response = await fetch("http://35.215.89.200:8080/handleUpdate");
+        const data = await response.json();
+        boxes = data.entries.map((box) => ({
+          ...box,
+          x: box.x * 2,
+          y: -box.y * 2,
+        }));
+        console.log("Fetched and scaled boxes from server:", boxes);
+        console.log("Fetched boxes from server:", boxes);
+      } catch (error) {
+        console.error("Error fetching boxes:", error);
+      }
+    };
+
+    fetchBoxes();
+
     // Function to update canvas dimensions based on window size
     const updateCanvasSize = () => {
       canvasWidth = window.innerWidth * 0.8; // 80% of window width
@@ -31,7 +50,7 @@
   async function sendData(id, x, y, depth, text) {
     const scaledX = x / 2;
     const scaledY = -y / 2;
-    const response = await fetch("http://35.215.112.100:8080/handleUpdate", {
+    const response = await fetch("http://35.215.89.200:8080/handleUpdate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -42,7 +61,7 @@
     console.log("Response from server:", data);
   }
 
-  function createBox(event) {
+  async function createBox(event) {
     if (isDragging) {
       isDragging = false;
       return;
@@ -143,7 +162,37 @@
   function handleDelete(event) {
     const id = event.detail;
     boxes = boxes.filter((box) => box.id !== id);
-    // Perform any other cleanup actions or server calls here.
+    async function deleteData(id) {
+      const response = await fetch(
+        `http://35.215.89.200:8080/handleUpdate?id=${id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (response.ok) {
+        console.log(`Deleted entry with ID: ${id}`);
+      } else {
+        console.log("Failed to delete entry");
+      }
+    }
+
+    deleteData();
+  }
+
+  async function deleteData(event) {
+    const id = event.detail;
+
+    const response = await fetch(
+      `http://35.215.89.200:8080/handleUpdate?id=${id}`,
+      {
+        method: "DELETE",
+      }
+    );
+    if (response.ok) {
+      console.log(`Deleted entry with ID: ${id}`);
+    } else {
+      console.log("Failed to delete entry");
+    }
   }
 </script>
 
@@ -153,28 +202,33 @@
     depthFactor={2}
     on:depthchange={handleDepthChange}
     on:edit={handleEdit}
-    on:delete={handleDelete}
+    on:delete={deleteData}
   />
   <div
     class="canvas"
     style="width: {canvasWidth}px; height: {canvasHeight}px;"
     on:click={createBox}
   >
-    {#each boxes as box (box.id)}
-      <div
-        class="draggable-text"
-        style="left: calc(50% + {box.x}px); top: calc(50% + {box.y}px);"
-        on:mousedown={(e) => handleMouseDown(box.id, e)}
-      >
-        {box.text}
-        {#if editingBoxId === box.id}
-          <div class="edit-form">
-            <input type="text" bind:value={box.text} />
-            <button on:click={() => confirmEdit(box.id)}>Confirm</button>
-          </div>
-        {/if}
-      </div>
-    {/each}
+    {#if boxes}
+      {#each boxes as box (box.id)}
+        <div
+          class="draggable-text"
+          style="left: calc(50% + {box.x}px); top: calc(50% + {box.y}px);"
+          on:mousedown={(e) => handleMouseDown(box.id, e)}
+        >
+          {box.text}
+          {#if editingBoxId === box.id}
+            <div class="edit-form">
+              <input type="text" bind:value={box.text} />
+              <button on:click={() => confirmEdit(box.id)}>Confirm</button>
+            </div>
+          {/if}
+        </div>
+      {/each}
+    {:else}
+      <!-- Handle the case where there are no boxes -->
+      <p>No boxes to display.</p>
+    {/if}
   </div>
 </div>
 

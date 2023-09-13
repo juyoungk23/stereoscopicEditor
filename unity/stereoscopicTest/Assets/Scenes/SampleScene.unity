@@ -607,7 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2b94882ed9d4accb8976a80faf6625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyeSeparation: 0.064
+  eyeSeparation: 0.08
+  adjustmentStep: 0.01
   leftEye: {fileID: 424101812}
   rightEye: {fileID: 1458108236}
 --- !u!4 &1113391421
