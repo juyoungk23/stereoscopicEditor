@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
-using UnityEngine.UI;
+using TMPro;  // Import TextMeshPro Namespace
 
 [System.Serializable]
 public class TextEntry
@@ -17,14 +17,15 @@ public class TextEntry
 [System.Serializable]
 public class TextResponse
 {
-    public List<TextEntry> texts;  // Make sure this field name matches the JSON field name
+    public List<TextEntry> entries;  // Make sure this field name matches the JSON field name ("entries" instead of "texts")
 }
 
 public class TextAndPositionUpdater : MonoBehaviour
 {
     public GameObject textPrefab;
+    public Transform canvasTransform; // Reference to Canvas transform
     private Dictionary<int, GameObject> textObjects = new Dictionary<int, GameObject>();
-    private string url = "http://34.94.214.126:8080/updateText"; // Replace with your Go server URL
+    private string url = "http://35.215.112.100:8080/handleUpdate"; // Replaced with your new Go server URL ("/handleUpdate")
 
     void Start()
     {
@@ -43,39 +44,36 @@ public class TextAndPositionUpdater : MonoBehaviour
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                Debug.Log(www.error);
+                Debug.Log("Error: " + www.error + ", Status Code: " + www.responseCode);
             }
             else
             {
                 TextResponse response = JsonUtility.FromJson<TextResponse>(receivedText);
 
-                if (response.texts == null || response.texts.Count == 0)
+                if (response.entries == null || response.entries.Count == 0)
                 {
                     Debug.Log("No texts received from server.");
                 }
                 else
                 {
-                    foreach (var entry in response.texts)
+                    foreach (var entry in response.entries)
                     {
                         GameObject textObj;
                         if (!textObjects.TryGetValue(entry.id, out textObj))
                         {
-                            textObj = Instantiate(textPrefab);
+                            textObj = Instantiate(textPrefab, canvasTransform); // Instantiate as child of Canvas
                             textObjects[entry.id] = textObj;
                         }
 
                         // Update Position and Depth
-                        textObj.transform.position = new Vector3(entry.x, entry.y, entry.depth);
+                        textObj.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(entry.x, entry.y, entry.depth); // Use RectTransform for UI elements
 
                         // Update Text
-                        Text textComponent = textObj.GetComponent<Text>();
+                        TextMeshProUGUI textComponent = textObj.GetComponent<TextMeshProUGUI>();  // Changed to TextMeshProUGUI
                         if (textComponent != null)
                         {
                             textComponent.text = entry.text;
                         }
-
-                        Debug.Log("TextEntry content: " + entry.depth);
-                        // Debug.Log("Depth: " + entry.depth);
                     }
                 }
             }

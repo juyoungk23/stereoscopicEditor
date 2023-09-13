@@ -10,7 +10,7 @@ public class SetupCameras : MonoBehaviour
     void Start()
     {
         // Set the position of each camera
-        leftEye.transform.localPosition = new Vector3(-eyeSeparation / 2, 0, -10);
-        rightEye.transform.localPosition = new Vector3(eyeSeparation / 2, 0, -10);
+        leftEye.transform.localPosition = new Vector3(-eyeSeparation / 2, 0, -1);
+        rightEye.transform.localPosition = new Vector3(eyeSeparation / 2, 0, -1);
     }
 }
