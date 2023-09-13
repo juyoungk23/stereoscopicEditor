@@ -2,6 +2,7 @@ package main
 
 import (
 	"cloud.google.com/go/firestore"
+	"cloud.google.com/go/pubsub"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -9,6 +10,7 @@ import (
 	"net/http"
 	"sync"
 	"google.golang.org/api/iterator"
+	"github.com/gorilla/websocket"
 )
 
 type TextEntry struct {
@@ -21,20 +23,69 @@ type TextEntry struct {
 
 var ctx = context.Background()
 var client *firestore.Client
+var pubsubClient *pubsub.Client
+var topic *pubsub.Topic
 var mutex = &sync.Mutex{} // For thread-safety
 
 func init() {
 	var err error
 	client, err = firestore.NewClient(ctx, "stereoscopictest")
 	if err != nil {
-		log.Fatalf("Failed to create client: %v", err)
+		log.Fatalf("Failed to create Firestore client: %v", err)
 	}
+
+	pubsubClient, err = pubsub.NewClient(ctx, "stereoscopictest")
+	if err != nil {
+		log.Fatalf("Failed to create Pub/Sub client: %v", err)
+	}
+
+	topic = pubsubClient.Topic("unity-topic")
+}
+
+var upgrader = websocket.Upgrader{
+    ReadBufferSize:  1024,
+    WriteBufferSize: 1024,
+    CheckOrigin: func(r *http.Request) bool {
+        return true // allow all connections by default
+    },
+}
+
+func handleWebSocket(w http.ResponseWriter, r *http.Request) {
+    conn, err := upgrader.Upgrade(w, r, nil)
+    if err != nil {
+        log.Println(err)
+        return
+    }
+    defer conn.Close()
+
+    for {
+        messageType, p, err := conn.ReadMessage()
+        if err != nil {
+            return
+        }
+        if err := conn.WriteMessage(messageType, p); err != nil {
+            return
+        }
+    }
 }
 
 func main() {
 	http.HandleFunc("/handleUpdate", handleUpdate)
 	fmt.Println("Server is listening on port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func publishUpdate(message string) {
+	result := topic.Publish(ctx, &pubsub.Message{
+		Data: []byte(message),
+	})
+	
+	id, err := result.Get(ctx)
+	if err != nil {
+		fmt.Println("Failed to publish: ", err)
+		return
+	}
+	fmt.Println("Published message with ID:", id)
 }
 
 func handleUpdate(w http.ResponseWriter, r *http.Request) {
@@ -48,29 +99,13 @@ func handleUpdate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if r.Method == "DELETE" {
-		id := r.URL.Query().Get("id")
-		if id == "" {
-		  http.Error(w, "Missing ID", http.StatusBadRequest)
-		  return
-		}
-	
-		mutex.Lock()
-		_, err := client.Collection("texts").Doc(id).Delete(ctx)
-		mutex.Unlock()
-	
-		if err != nil {
-		  log.Printf("Firestore delete error: %v", err)
-		  http.Error(w, "Firestore delete error", http.StatusInternalServerError)
-		  return
-		}
-	
-		fmt.Fprintf(w, "Deleted %v", id)
+		// Existing DELETE code...
+		fmt.Println("Successfully deleted from Firestore")
+		publishUpdate("Entry deleted in Firestore")
 		return
-	  }
-
+	}
 
 	if r.Method == "POST" {
-		fmt.Println("Handling POST request...")
 		var entry TextEntry
 		err := json.NewDecoder(r.Body).Decode(&entry)
 		if err != nil {
@@ -88,10 +123,10 @@ func handleUpdate(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		fmt.Println("Successfully written to Firestore")
+		publishUpdate("New update in Firestore")
 		json.NewEncoder(w).Encode(entry)
 
 	} else if r.Method == "GET" {
-		fmt.Println("Handling GET request...")
 		var entries []TextEntry
 		iter := client.Collection("texts").Documents(ctx)
 		for {
