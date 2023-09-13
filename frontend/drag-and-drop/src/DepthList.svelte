@@ -70,8 +70,10 @@
       >
         <div class="card">
           {box.text} (Depth: {depthFactor * (index + 1)} meters)
-          <button on:click={() => dispatch("edit", box.id)}>Edit</button>
-          <button on:click={() => dispatch("delete", box.id)}>Delete</button>
+          <div class="buttons">
+            <button on:click={() => dispatch("edit", box.id)}>Edit</button>
+            <button on:click={() => dispatch("delete", box.id)}>Delete</button>
+          </div>
         </div>
       </li>
     {/each}
@@ -80,10 +82,10 @@
 
 <style>
   aside {
-    position: relative;
+    position: absolute;
     left: 0;
     top: 0;
-    width: 200px;
+    width: 400px;
     height: 100vh;
     background: linear-gradient(to bottom, #333, #555);
     overflow-y: auto;
@@ -95,6 +97,11 @@
     list-style: none;
   }
 
+  .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
   .card {
     padding: 20px;
     border: 1px solid #ccc;

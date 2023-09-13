@@ -5,9 +5,9 @@
   let editingBoxId = -1;
   let boxes = [];
   let isDragging = false;
-  let canvasWidth = 800;
-  let canvasHeight = 600;
-  let depthFactor = 50;
+  let canvasWidth = 1200;
+  let canvasHeight = 1000;
+  let depthFactor = 100;
 
   onMount(() => {
     const fetchBoxes = async () => {
@@ -17,8 +17,8 @@
         const data = await response.json();
         boxes = data.entries.map((box) => ({
           ...box,
-          x: box.x * 2,
-          y: -box.y * 2,
+          x: box.x * 1.5,
+          y: -box.y * 1.5,
         }));
         console.log("Fetched and scaled boxes from server:", boxes);
         console.log("Fetched boxes from server:", boxes);
@@ -31,8 +31,8 @@
 
     // Function to update canvas dimensions based on window size
     const updateCanvasSize = () => {
-      canvasWidth = window.innerWidth * 0.8; // 80% of window width
-      canvasHeight = window.innerHeight * 0.8; // 80% of window height
+      canvasWidth = window.innerWidth * 0.7; // 80% of window width
+      canvasHeight = window.innerHeight * 0.7; // 80% of window height
     };
 
     // Initially set canvas dimensions
@@ -48,8 +48,8 @@
   });
 
   async function sendData(id, x, y, depth, text) {
-    const scaledX = x / 2;
-    const scaledY = -y / 2;
+    const scaledX = x / 1.5;
+    const scaledY = -y / 1.5;
     const response = await fetch("http://35.215.89.200:8080/handleUpdate", {
       method: "POST",
       headers: {
@@ -87,7 +87,7 @@
     const newBoxes = event.detail;
     newBoxes.forEach((box, index) => {
       box.depth = 0.5 * (index + 1);
-      sendData(box.id, box.x, box.y, box.depth);
+      sendData(box.id, box.x, box.y, box.depth, box.text);
     });
   }
 
@@ -169,41 +169,49 @@
   }
 </script>
 
-<div class="container">
-  <DepthList
-    {boxes}
-    {depthFactor}
-    on:depthchange={handleDepthChange}
-    on:edit={handleEdit}
-    on:delete={deleteData}
-  />
-  <div
-    class="canvas"
-    style="width: {canvasWidth}px; height: {canvasHeight}px;"
-    on:click={createBox}
-  >
-    {#if boxes}
-      {#each boxes as box (box.id)}
-        <div
-          class="draggable-text"
-          style="left: calc(50% + {box.x}px); top: calc(50% + {box.y}px);"
-          on:mousedown={(e) => handleMouseDown(box.id, e)}
-        >
-          {box.text}
-          {#if editingBoxId === box.id}
-            <div class="edit-form">
-              <input type="text" bind:value={box.text} />
-              <button on:click={() => confirmEdit(box.id)}>Confirm</button>
-            </div>
-          {/if}
-        </div>
-      {/each}
-    {:else}
-      <!-- Handle the case where there are no boxes -->
-      <p>No boxes to display.</p>
-    {/if}
-  </div>
+<DepthList
+  {boxes}
+  {depthFactor}
+  on:depthchange={handleDepthChange}
+  on:edit={handleEdit}
+  on:delete={deleteData}
+/>
+
+<!-- <div class="container"> -->
+<div
+  class="canvas"
+  style="width: {canvasWidth}px; height: {canvasHeight}px;"
+  on:click={createBox}
+>
+  {#if boxes}
+    {#each boxes as box (box.id)}
+      <div
+        class="draggable-text"
+        style="left: calc(50% + {box.x}px); top: calc(50% + {box.y}px);"
+        on:mousedown={(e) => handleMouseDown(box.id, e)}
+      >
+        {box.text}
+        {#if editingBoxId === box.id}
+          <div class="edit-form">
+            <input type="text" bind:value={box.text} />
+            <button on:click={() => confirmEdit(box.id)}>Confirm</button>
+          </div>
+        {/if}
+      </div>
+    {/each}
+  {:else}
+    <!-- Handle the case where there are no boxes -->
+    <p>No boxes to display.</p>
+  {/if}
 </div>
+
+<!-- </div> -->
+
+<button
+  on:click={() => {
+    console.log("Uploading 3d asset from GCP");
+  }}>Add 3D Asset</button
+>
 
 <style>
   .container {
@@ -219,19 +227,17 @@
     background: linear-gradient(135deg, #f3eff5, #faf3e0);
     position: relative;
     overflow: hidden;
-    margin: 16px;
-    border: 2px solid red;
+    margin-left: 250px;
   }
 
   .draggable-text {
     position: absolute;
     cursor: grab;
     transform: translate(-50%, -50%);
-    /* transition: top 0.1s ease, left 0.1s ease; Smooth movement */
-    padding: 4px 8px; /* Padding around text */
+    padding: 4px 8px;
     background: white;
-    border-radius: 4px; /* Rounded corners for text boxes */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle Shadow for text boxes */
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .edit-form {
