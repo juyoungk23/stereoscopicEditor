@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{8FB9D3C7-D653-3D39-D700-020D6675DB5C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AssetLoader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TextAndPositionUpdater.cs">
     <Files>
       <File FileName="Assets/WebSocketController.cs" Line="10" Column="47" />
-      <File FileName="Assets/TextAndPositionUpdater.cs" Line="89" Column="56" />
-      <File FileName="Assets/AssetLoader.cs" Line="19" Column="28" />
+      <File FileName="Assets/TextAndPositionUpdater.cs" Line="152" Column="27" />
+      <File FileName="Assets/AssetLoader.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="stereoscopicTest" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="AssetLoader.cs" selected="True" />
+              <Node name="TextAndPositionUpdater.cs" selected="True" />
             </Node>
           </Node>
         </State>

@@ -14,7 +14,7 @@
   onMount(() => {
     const fetchBoxes = async () => {
       try {
-        const response = await fetch("http://35.215.89.200:8080/handleUpdate");
+        const response = await fetch("http://35.215.89.200:8080/handleTexts");
         const data = await response.json();
         boxes = data.entries.map((box) => ({
           ...box,

@@ -5,7 +5,7 @@
   const assetPosition = { x: 0, y: 0, z: 30 };
 
   async function load3DAsset() {
-    const url = "http://35.215.89.200:8080/load3DAsset";
+    const url = "http://35.215.89.200:8080/Load3DAsset";
     const data = {
       gcsLink: bucketLink,
       assetName: myAssetName,
