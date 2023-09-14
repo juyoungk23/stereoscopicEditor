@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{8FB9D3C7-D653-3D39-D700-020D6675DB5C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TextAndPositionUpdater.cs">
+    <Files>
+      <File FileName="Assets/WebSocketController.cs" Line="10" Column="47" />
+      <File FileName="Assets/TextAndPositionUpdater.cs" Line="94" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="stereoscopicTest" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="TextAndPositionUpdater.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c0791238-b1e0-4abd-862f-2f3e52760c9f" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

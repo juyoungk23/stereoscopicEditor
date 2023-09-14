@@ -155,6 +155,9 @@
   async function deleteData(event) {
     const id = event.detail;
     boxes = boxes.filter((box) => box.id !== id);
+
+    console.log("Sending delete request for ID:", id);
+
     const response = await fetch(
       `http://35.215.89.200:8080/handleUpdate?id=${id}`,
       {

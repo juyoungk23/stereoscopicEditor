@@ -7,7 +7,7 @@ public class WebSocketController : MonoBehaviour
 
     void Start()
     {
-        ws = new WebSocket("ws://YOUR_GO_SERVER_ADDRESS/ws");
+        ws = new WebSocket("ws://35.215.89.200:8080/ws");
 
         ws.OnMessage += (sender, e) =>
         {

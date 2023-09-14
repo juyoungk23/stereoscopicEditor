@@ -66,7 +66,7 @@ func handleUpdate(w http.ResponseWriter, r *http.Request) {
 	
 		fmt.Fprintf(w, "Deleted %v", id)
 		return
-	  }
+	}
 
 
 	if r.Method == "POST" {

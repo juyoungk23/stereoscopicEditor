@@ -50,6 +50,12 @@ var upgrader = websocket.Upgrader{
     },
 }
 
+// Active WebSocket connections
+var clients = make(map[*websocket.Conn]bool)
+
+// Mutex to protect the clients map
+var clientsMutex = &sync.Mutex{}
+
 func handleWebSocket(w http.ResponseWriter, r *http.Request) {
     conn, err := upgrader.Upgrade(w, r, nil)
     if err != nil {
@@ -58,19 +64,100 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
     }
     defer conn.Close()
 
+    // Register the new client
+    clientsMutex.Lock()
+    clients[conn] = true
+    clientsMutex.Unlock()
+
+    err = conn.WriteMessage(websocket.TextMessage, []byte("Welcome to the WebSocket server"))
+    if err != nil {
+        log.Println("Write error:", err)
+        return
+    }
+
+	// Load all entries from Firestore and send them
+    var entries []TextEntry
+    iter := client.Collection("texts").Documents(ctx)
     for {
-        messageType, p, err := conn.ReadMessage()
+        doc, err := iter.Next()
+        if err == iterator.Done {
+            break
+        }
         if err != nil {
+            log.Println("Firestore read error:", err)
             return
         }
-        if err := conn.WriteMessage(messageType, p); err != nil {
+
+        var entry TextEntry
+        doc.DataTo(&entry)
+        entries = append(entries, entry)
+    }
+    
+    initialData, err := json.Marshal(map[string]interface{}{"entries": entries})
+
+    if err != nil {
+        log.Println("Error marshalling initial data:", err)
+        return
+    }
+    
+    conn.WriteMessage(websocket.TextMessage, initialData)
+    
+
+    // Unregister client when the function returns
+    defer func() {
+        clientsMutex.Lock()
+        delete(clients, conn)
+        clientsMutex.Unlock()
+    }()
+
+    for {
+        _, _, err := conn.ReadMessage()
+        if err != nil {
             return
         }
     }
 }
 
+func broadcastUpdate() {
+    // Fetch and send updated data to all WebSocket clients
+    var entries []TextEntry
+    iter := client.Collection("texts").Documents(ctx)
+    for {
+        doc, err := iter.Next()
+        if err == iterator.Done {
+            break
+        }
+        if err != nil {
+            log.Println("Firestore read error:", err)
+            return
+        }
+
+        var entry TextEntry
+        doc.DataTo(&entry)
+        entries = append(entries, entry)
+    }
+    
+    updateData, err := json.Marshal(map[string]interface{}{"entries": entries})
+
+    if err != nil {
+        log.Println("Error marshalling update data:", err)
+        return
+    }
+
+    for client := range clients {
+        if err := client.WriteMessage(websocket.TextMessage, updateData); err != nil {
+            log.Printf("WebSocket error: %v", err)
+            client.Close()
+            delete(clients, client)
+        }
+    }
+}
+
+
+
 func main() {
 	http.HandleFunc("/handleUpdate", handleUpdate)
+	http.HandleFunc("/ws", handleWebSocket)
 	fmt.Println("Server is listening on port 8080...")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
@@ -99,11 +186,33 @@ func handleUpdate(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if r.Method == "DELETE" {
-		// Existing DELETE code...
+		id := r.URL.Query().Get("id")
+		fmt.Println("Received ID to delete:", id)
+	
+		if id == "" {
+			fmt.Println("Received empty ID for deletion.")
+			http.Error(w, "Missing ID", http.StatusBadRequest)
+			return
+		}
+	
+		mutex.Lock()
+		_, err := client.Collection("texts").Doc(id).Delete(ctx)
+		mutex.Unlock()
+	
+		if err != nil {
+			fmt.Println("Delete failed with error:", err)
+		} else {
+			fmt.Println("Delete succeeded for ID:", id)
+		}
+	
+		// Broadcast update to all WebSocket clients
+		broadcastUpdate()
+	
 		fmt.Println("Successfully deleted from Firestore")
 		publishUpdate("Entry deleted in Firestore")
 		return
 	}
+	
 
 	if r.Method == "POST" {
 		var entry TextEntry
@@ -123,6 +232,9 @@ func handleUpdate(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		fmt.Println("Successfully written to Firestore")
+		
+		// Broadcast update to all WebSocket clients
+		broadcastUpdate()
 		publishUpdate("New update in Firestore")
 		json.NewEncoder(w).Encode(entry)
 
