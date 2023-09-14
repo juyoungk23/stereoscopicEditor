@@ -1,4 +1,5 @@
 <script>
+  import Add3DAssets from "./Add3DAssets.svelte";
   import DepthList from "./DepthList.svelte";
   import { onMount } from "svelte";
 
@@ -58,7 +59,7 @@
       body: JSON.stringify({ id, x: scaledX, y: scaledY, depth, text }),
     });
     const data = await response.json();
-    console.log("Response from server:", data);
+    // console.log("Response from server:", data);
   }
 
   async function createBox(event) {
@@ -210,11 +211,7 @@
 
 <!-- </div> -->
 
-<button
-  on:click={() => {
-    console.log("Uploading 3d asset from GCP");
-  }}>Add 3D Asset</button
->
+<Add3DAssets />
 
 <style>
   .container {
