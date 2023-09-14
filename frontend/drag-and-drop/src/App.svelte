@@ -5,6 +5,7 @@
 
   let editingBoxId = -1;
   let boxes = [];
+  let assets = [];
   let isDragging = false;
   let canvasWidth = 1200;
   let canvasHeight = 1000;
@@ -12,7 +13,6 @@
 
   onMount(() => {
     const fetchBoxes = async () => {
-      // Fetch existing boxes from server
       try {
         const response = await fetch("http://35.215.89.200:8080/handleUpdate");
         const data = await response.json();
@@ -29,6 +29,19 @@
     };
 
     fetchBoxes();
+
+    const fetchAssets = async () => {
+      try {
+        const response = await fetch("http://35.215.89.200:8080/handleAssets");
+        const data = await response.json();
+        assets = data.entries; // Assuming 'entries' is the field that contains the asset array
+        console.log("Fetched assets from server:", assets);
+      } catch (error) {
+        console.error("Error fetching assets:", error);
+      }
+    };
+
+    fetchAssets();
 
     // Function to update canvas dimensions based on window size
     const updateCanvasSize = () => {
@@ -82,6 +95,18 @@
 
     console.log("clientX:", event.clientX, "clientY:", event.clientY);
     console.log("canvasRect:", canvasRect.left, canvasRect.top);
+  }
+
+  async function addAsset(asset) {
+    const response = await fetch("http://35.215.89.200:8080/handleAssets", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(asset),
+    });
+    const data = await response.json();
+    console.log("Response from server:", data);
   }
 
   function handleDepthChange(event) {
@@ -207,6 +232,12 @@
     <!-- Handle the case where there are no boxes -->
     <p>No boxes to display.</p>
   {/if}
+
+  {#each assets as asset (asset.id)}
+    <!-- Render each asset based on its details -->
+    <!-- e.g., if you're using Three.js: -->
+    <!-- <ThreeJSComponent asset={asset} /> -->
+  {/each}
 </div>
 
 <!-- </div> -->

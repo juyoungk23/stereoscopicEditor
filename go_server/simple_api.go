@@ -38,6 +38,101 @@ var pubsubClient *pubsub.Client
 var topic *pubsub.Topic
 var mutex = &sync.Mutex{} // For thread-safety
 
+// Add this new struct for storing AssetInfo in Firestore
+type FirestoreAssetInfo struct {
+	ID            string `firestore:"id,omitempty"`
+	GcsLink       string `firestore:"gcsLink,omitempty"`
+	AssetName     string `firestore:"assetName,omitempty"`
+	AssetPosition struct {
+		X float64 `firestore:"x,omitempty"`
+		Y float64 `firestore:"y,omitempty"`
+		Z float64 `firestore:"z,omitempty"`
+	} `firestore:"assetPosition,omitempty"`
+}
+
+func broadcastAssetInfo() {
+	var asset FirestoreAssetInfo
+	doc, err := client.Collection("assets").Doc("singleAsset").Get(ctx)
+	if err != nil {
+		log.Println("Firestore read error:", err)
+		return
+	}
+	doc.DataTo(&asset)
+	assetData, err := json.Marshal(asset)
+	if err != nil {
+		log.Println("Error marshalling asset data:", err)
+		return
+	}
+
+	for client := range clients {
+		if err := client.WriteMessage(websocket.TextMessage, assetData); err != nil {
+			log.Printf("WebSocket error: %v", err)
+			client.Close()
+			delete(clients, client)
+		}
+	}
+}
+
+// Function to handle GET requests for assets
+func handleAssetsGET(w http.ResponseWriter, r *http.Request) {
+	var assets []FirestoreAssetInfo
+	iter := client.Collection("assets").Documents(ctx)
+	for {
+		doc, err := iter.Next()
+		if err == iterator.Done {
+			break
+		}
+		if err != nil {
+			fmt.Println("Firestore read error:", err)
+			http.Error(w, "Firestore read error", http.StatusInternalServerError)
+			return
+		}
+
+		var asset FirestoreAssetInfo
+		doc.DataTo(&asset)
+		assets = append(assets, asset)
+	}
+	json.NewEncoder(w).Encode(map[string][]FirestoreAssetInfo{"assets": assets})
+}
+
+// Function to handle POST requests for assets
+func handleAssetsPOST(w http.ResponseWriter, r *http.Request) {
+	var asset FirestoreAssetInfo
+	err := json.NewDecoder(r.Body).Decode(&asset)
+	if err != nil {
+		fmt.Println("Error decoding JSON:", err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	} else {
+		broadcastAssetInfo() // <-- Add this line
+	}
+
+	mutex.Lock()
+	_, err = client.Collection("assets").Doc(asset.ID).Set(ctx, asset)
+	mutex.Unlock()
+
+	if err != nil {
+		fmt.Println("Firestore write error:", err)
+		http.Error(w, "Firestore write error: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	json.NewEncoder(w).Encode(asset)
+}
+
+// Function to handle assets
+func handleAssets(w http.ResponseWriter, r *http.Request) {
+	enableCors(&w)
+
+	if r.Method == "GET" {
+		handleAssetsGET(w, r)
+	} else if r.Method == "POST" {
+		handleAssetsPOST(w, r)
+	} else {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+	}
+}
+
 func init() {
 	var err error
 	client, err = firestore.NewClient(ctx, "stereoscopictest")
@@ -165,6 +260,7 @@ func broadcastUpdate() {
 
 func main() {
 	http.HandleFunc("/handleUpdate", handleUpdate)
+	http.HandleFunc("/handleAssets", handleAssets)
 	http.HandleFunc("/ws", handleWebSocket)
 	http.HandleFunc("/load3DAsset", load3DAsset)
 	fmt.Println("Server is listening on port 8080...")

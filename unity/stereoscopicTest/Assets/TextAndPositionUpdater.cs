@@ -25,6 +25,7 @@ public class TextResponse
 [System.Serializable]
 public class AssetInfo
 {
+    public int id;
     public string gcsLink;
     public string assetName;
     public AssetPosition assetPosition;
@@ -76,14 +77,14 @@ public class TextAndPositionUpdater : MonoBehaviour
                 TextResponse textResponse = JsonUtility.FromJson<TextResponse>(e.Data);
                 if (textResponse != null && textResponse.entries != null)
                 {
-                    //Debug.Log("Enqueuing text message with " + textResponse.entries.Count + " entries.");
+                    Debug.Log("Enqueuing text message with " + textResponse.entries.Count + " entries.");
                     textMessageQueue.Enqueue(textResponse);
                 }
 
                 AssetInfo assetInfo = JsonUtility.FromJson<AssetInfo>(e.Data);
                 if (assetInfo != null && !string.IsNullOrEmpty(assetInfo.gcsLink))
                 {
-                    //Debug.Log("Enqueuing asset message with GCS link: " + assetInfo.gcsLink + assetInfo.assetName);
+                    Debug.Log("Enqueuing asset message with GCS link: " + assetInfo.gcsLink + assetInfo.assetName + assetInfo.assetPosition);
                     assetMessageQueue.Enqueue(assetInfo);
                 }
             }
@@ -155,6 +156,8 @@ public class TextAndPositionUpdater : MonoBehaviour
 
     IEnumerator LoadAsset(string uri, string assetName, Vector3 position)
     {
+        Debug.Log("Attempting to load asset from: " + uri);
+
         using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(uri))
         {
             yield return uwr.SendWebRequest();
