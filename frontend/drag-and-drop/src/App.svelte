@@ -7,7 +7,10 @@
   let assets = [];
   let editingTextId = -1;
   let depthFactor = 100;
-  let scaleFactor = 1.5;
+  let textScaleFactorX = 1.5;
+  let textScaleFactorY = 1.5;
+  let assetScaleFactorX = 100;
+  let assetScaleFactorY = 100;
   let isDragging = false;
   let canvasWidth = 1200;
   let canvasHeight = 1000;
@@ -32,8 +35,8 @@
       .then((data) => {
         texts = data.entries.map((text) => ({
           ...text,
-          x: text.x * 1.5,
-          y: -text.y * 1.5,
+          x: text.x * textScaleFactorX,
+          y: -text.y * textScaleFactorY,
         }));
         console.log("Fetched and scaled boxes from server:", texts);
         console.log("Fetched boxes from server:", texts);
@@ -42,15 +45,13 @@
         fetchData("http://35.215.89.200:8080/handleAssets") // fetch assets
           .then((data) => {
             assets = data.assets;
-            console.log("ON MOUNT ASSETS:", assets);
 
-            // scale the x, y , z positions similar to the texts object
             assets = assets.map((asset) => ({
               ...asset,
               assetPosition: {
-                x: asset.assetPosition.x * 1.5,
-                y: -asset.assetPosition.y * 1.5,
-                z: asset.assetPosition.z * 1.5,
+                x: asset.assetPosition.x * assetScaleFactorX,
+                y: -asset.assetPosition.y * assetScaleFactorY,
+                z: asset.assetPosition.z,
               },
             }));
 
@@ -60,11 +61,11 @@
             assets.forEach((asset) => {
               console.log("Asset ID:", asset.id);
               console.log(
-                "Asset Position = {X: ",
+                "Asset Position = {x: ",
                 asset.assetPosition.x,
-                " Y: ",
+                " y: ",
                 asset.assetPosition.y,
-                " Z: ",
+                " z: ",
                 asset.assetPosition.z,
                 "}"
               );
@@ -103,8 +104,8 @@
 
     switch (type) {
       case "text":
-        data.x = data.x / scaleFactor;
-        data.y = -data.y / scaleFactor;
+        data.x = data.x / textScaleFactorX;
+        data.y = -data.y / textScaleFactorY;
 
         const response = await fetch("http://35.215.89.200:8080/handleTexts", {
           method: "POST",
@@ -120,9 +121,9 @@
         const assetToUpdate = {
           id: data.id,
           assetPosition: {
-            x: data.x / 20,
-            y: -data.y / 10,
-            z: 100,
+            x: data.x / assetScaleFactorX,
+            y: -data.y / assetScaleFactorY,
+            z: 10,
             // Add Z if needed
           },
           // Add any other properties you need to send
@@ -210,7 +211,6 @@
     let startY = event.clientY;
 
     function handleMouseMove(event) {
-      console.log("Mouse Moved");
       let dx = event.clientX - startX;
       let dy = event.clientY - startY;
 
@@ -230,7 +230,6 @@
 
       if (type == "asset") {
         index = assets.findIndex((a) => a.id === id);
-        console.log("Index:", index);
         if (index === -1) return;
         updatedData = {
           ...assets[index],
@@ -265,7 +264,6 @@
     function handleMouseUp() {
       // Send data to the server only when the drag operation is completed
       let object;
-      console.log("HANDLE MOUSE UP:", type);
 
       if (type == "text") {
         object = texts.find((b) => b.id === id);
@@ -369,7 +367,7 @@
   {#if texts}
     {#each texts as text (text.id)}
       <div
-        class="draggable-text"
+        class="draggable"
         style="left: calc(50% + {text.x}px); top: calc(50% + {text.y}px);"
         on:mousedown={(e) => handleMouseDown("text", text.id, e)}
       >
@@ -390,10 +388,9 @@
   {#if assets}
     {#each assets as asset (asset.id)}
       <p
-        class="draggable-asset"
+        class="draggable"
         style="left: calc(50% + {asset.assetPosition
-          .x}px); top: calc(50% + {asset.assetPosition
-          .y}px); position: absolute;"
+          .x}px); top: calc(50% + {asset.assetPosition.y}px);"
         on:mousedown={(e) => handleMouseDown("asset", asset.id, e)}
       >
         ASSET: {asset.ID}, NAME: {asset.assetName}
@@ -424,16 +421,7 @@
     margin-left: 250px;
   }
 
-  .draggable-text {
-    position: absolute;
-    cursor: grab;
-    transform: translate(-50%, -50%);
-    padding: 4px 8px;
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .draggable-asset {
+  .draggable {
     position: absolute;
     cursor: grab;
     transform: translate(-50%, -50%);

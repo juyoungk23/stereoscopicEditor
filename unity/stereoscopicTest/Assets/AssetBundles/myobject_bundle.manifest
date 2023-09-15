@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1771881196
+CRC: 3548180179
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5621419d392b5f7f1e836bc1d2ee8a0e
+    Hash: 5dc7ef7156c72d3380bf3368f28d94f0
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0f9fba26cbb38215f317d1fd6b1954a0
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 5621419d392b5f7f1e836bc1d2ee8a0e
+    Hash: 5dc7ef7156c72d3380bf3368f28d94f0
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,5 +28,6 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/abstract_object(75).fbx
+- Assets/Raw3DAssets/Mask.obj
+- Assets/Raw3DAssets/abstract_object(75).fbx
 Dependencies: []
