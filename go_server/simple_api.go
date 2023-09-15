@@ -32,15 +32,16 @@ type AssetInfo struct {
 	} `json:"assetPosition"`
 }
 
+// FirestoreAssetInfo represents the structure of an asset object.
 type FirestoreAssetInfo struct {
-	ID            string `firestore:"id,omitempty"`
-	GcsLink       string `firestore:"gcsLink,omitempty"`
-	AssetName     string `firestore:"assetName,omitempty"`
+	ID            string `json:"id"`
+	GcsLink       string `json:"gcsLink"`
+	AssetName     string `json:"assetName"`
 	AssetPosition struct {
-		X float64 `firestore:"x,omitempty"`
-		Y float64 `firestore:"y,omitempty"`
-		Z float64 `firestore:"z,omitempty"`
-	} `firestore:"assetPosition,omitempty"`
+		X float64 `json:"x"`
+		Y float64 `json:"y"`
+		Z float64 `json:"z"`
+	} `json:"assetPosition"`
 }
 
 var ctx = context.Background()
@@ -86,6 +87,10 @@ func enableCors(w *http.ResponseWriter) {
 // -------------------------------------------------------------------------------------------------------------------------------------
 
 func handleTextsGET(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "OPTIONS" {
+		return
+	}
+
 	var entries []TextEntry
 	iter := firestoreClient.Collection("texts").Documents(ctx)
 	for {
@@ -108,6 +113,10 @@ func handleTextsGET(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleTextsPOST(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "OPTIONS" {
+		return
+	}
+
 	var entry TextEntry
 	err := json.NewDecoder(r.Body).Decode(&entry)
 	if err != nil {
@@ -127,13 +136,17 @@ func handleTextsPOST(w http.ResponseWriter, r *http.Request) {
 	// fmt.Println("Successfully written to Firestore")
 
 	// Broadcast update to all WebSocket clients
-	broadcastTextUpdates()
+	broadcastUnifiedUpdates()
 	publishTextUpdate("New update in Firestore")
 	json.NewEncoder(w).Encode(entry)
 
 }
 
 func handleTextsDELETE(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "OPTIONS" {
+		return
+	}
+
 	id := r.URL.Query().Get("id")
 	// fmt.Println("Received ID to delete:", id)
 
@@ -154,7 +167,7 @@ func handleTextsDELETE(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Broadcast update to all WebSocket clients
-	broadcastTextUpdates()
+	broadcastUnifiedUpdates()
 
 	// fmt.Println("Successfully deleted from Firestore")
 	publishTextUpdate("Entry deleted in Firestore")
@@ -164,6 +177,9 @@ func handleTextsDELETE(w http.ResponseWriter, r *http.Request) {
 // Function to handle text updates
 func handleTexts(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
+	if r.Method == "OPTIONS" {
+		return
+	}
 
 	if r.Method == "GET" {
 		handleTextsGET(w, r)
@@ -196,28 +212,31 @@ func publishTextUpdate(message string) {
 // -------------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------------
 
-func broadcastAssetInfo() {
-	var asset FirestoreAssetInfo
-	doc, err := firestoreClient.Collection("assets").Doc("singleAsset").Get(ctx)
-	if err != nil {
-		log.Println("Firestore read error:", err)
-		return
-	}
-	doc.DataTo(&asset)
-	assetData, err := json.Marshal(asset)
-	if err != nil {
-		log.Println("Error marshalling asset data:", err)
-		return
-	}
+// func broadcastAssetInfo() {
+// 	var asset FirestoreAssetInfo
+// 	doc, err := firestoreClient.Collection("assets").Doc("0").Get(ctx)
+// 	if err != nil {
+// 		log.Println("Firestore read error:", err)
+// 		return
+// 	}
+// 	doc.DataTo(&asset)
+// 	assetData, err := json.Marshal(asset)
+// 	if err != nil {
+// 		log.Println("Error marshalling asset data:", err)
+// 		return
+// 	}
 
-	for wsClient := range websocketClients {
-		if err := wsClient.WriteMessage(websocket.TextMessage, assetData); err != nil {
-			log.Printf("WebSocket error: %v", err)
-			wsClient.Close()
-			delete(websocketClients, wsClient)
-		}
-	}
-}
+// 	for wsClient := range websocketClients {
+// 		if err := wsClient.WriteMessage(websocket.TextMessage, assetData); err != nil {
+// 			log.Printf("WebSocket error: %v", err)
+// 			wsClient.Close()
+// 			delete(websocketClients, wsClient)
+// 		}
+// 	}
+
+// 	log.Println("Broadcasting asset info:", asset)
+
+// }
 
 // Function to handle GET requests for assets
 func handleAssetsGET(w http.ResponseWriter, r *http.Request) {
@@ -243,32 +262,56 @@ func handleAssetsGET(w http.ResponseWriter, r *http.Request) {
 
 // Function to handle POST requests for assets
 func handleAssetsPOST(w http.ResponseWriter, r *http.Request) {
-	var asset FirestoreAssetInfo
-	err := json.NewDecoder(r.Body).Decode(&asset)
+	var assetToUpdate FirestoreAssetInfo
+	err := json.NewDecoder(r.Body).Decode(&assetToUpdate)
 	if err != nil {
 		fmt.Println("Error decoding JSON:", err)
 		http.Error(w, err.Error(), http.StatusBadRequest)
 		return
-	} else {
-		broadcastAssetInfo() // <-- Add this line
+	}
+
+	// Prepare updates
+	updates := []firestore.Update{
+		{Path: "AssetPosition.X", Value: assetToUpdate.AssetPosition.X},
+		{Path: "AssetPosition.Y", Value: assetToUpdate.AssetPosition.Y},
+		{Path: "AssetPosition.Z", Value: assetToUpdate.AssetPosition.Z},
+		// Add more fields as needed
 	}
 
 	mutex.Lock()
-	_, err = firestoreClient.Collection("assets").Doc(asset.ID).Set(ctx, asset)
+	_, err = firestoreClient.Collection("assets").Doc(assetToUpdate.ID).Update(ctx, updates)
 	mutex.Unlock()
 
 	if err != nil {
-		fmt.Println("Firestore write error:", err)
-		http.Error(w, "Firestore write error: "+err.Error(), http.StatusInternalServerError)
+		fmt.Println("Firestore update error:", err)
+		http.Error(w, "Firestore update error: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	json.NewEncoder(w).Encode(asset)
+	// Optionally, you can fetch the updated asset to return in the response
+	doc, err := firestoreClient.Collection("assets").Doc(assetToUpdate.ID).Get(ctx)
+	if err != nil {
+		fmt.Println("Firestore read error:", err)
+		http.Error(w, "Firestore read error: "+err.Error(), http.StatusInternalServerError)
+		return
+	}
+
+	// Broadcast update to all WebSocket clients
+	broadcastUnifiedUpdates()
+	publishTextUpdate("New update in Firestore")
+
+	var updatedAsset FirestoreAssetInfo
+	doc.DataTo(&updatedAsset)
+	json.NewEncoder(w).Encode(updatedAsset)
+
 }
 
 // Function to handle assets
 func handleAssets(w http.ResponseWriter, r *http.Request) {
 	enableCors(&w)
+	if r.Method == "OPTIONS" {
+		return
+	}
 
 	if r.Method == "GET" {
 		handleAssetsGET(w, r)
@@ -353,8 +396,8 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Load all entries from Firestore and send them
-	var entries []TextEntry
+	// Load all text entries from Firestore and send them
+	var textEntries []TextEntry
 	iter := firestoreClient.Collection("texts").Documents(ctx)
 	for {
 		doc, err := iter.Next()
@@ -368,11 +411,40 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 
 		var entry TextEntry
 		doc.DataTo(&entry)
-		entries = append(entries, entry)
+		textEntries = append(textEntries, entry)
 	}
 
-	initialData, err := json.Marshal(map[string]interface{}{"entries": entries})
+	// print text entries
+	for _, entry := range textEntries {
+		fmt.Println(entry)
+	}
 
+	// Load all asset entries from firestore and print the data
+	var assetEntries []AssetInfo
+	iter = firestoreClient.Collection("assets").Documents(ctx)
+	for {
+		doc, err := iter.Next()
+		if err == iterator.Done {
+			break
+		}
+		if err != nil {
+			log.Println("Firestore read error:", err)
+			return
+		}
+
+		var entry AssetInfo
+		doc.DataTo(&entry)
+		assetEntries = append(assetEntries, entry)
+	}
+
+	// print asset entries
+	for _, entry := range assetEntries {
+		fmt.Println("Assets:", entry)
+	}
+
+	// combine text and asset entries to one format that can be sent to unity
+	var initialData []byte
+	initialData, err = json.Marshal(map[string]interface{}{"texts": textEntries, "assets": assetEntries})
 	if err != nil {
 		log.Println("Error marshalling initial data:", err)
 		return
@@ -395,12 +467,47 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func broadcastTextUpdates() {
-	// Fetch and send updated data to all WebSocket clients
-	var entries []TextEntry
-	iter := firestoreClient.Collection("texts").Documents(ctx)
+// func broadcastTextUpdates() {
+// 	// Fetch and send updated data to all WebSocket clients
+// 	var entries []TextEntry
+// 	iter := firestoreClient.Collection("texts").Documents(ctx)
+// 	for {
+// 		doc, err := iter.Next()
+// 		if err == iterator.Done {
+// 			break
+// 		}
+// 		if err != nil {
+// 			log.Println("Firestore read error:", err)
+// 			return
+// 		}
+
+// 		var entry TextEntry
+// 		doc.DataTo(&entry)
+// 		entries = append(entries, entry)
+// 	}
+
+// 	updateData, err := json.Marshal(map[string]interface{}{"entries": entries})
+
+// 	if err != nil {
+// 		log.Println("Error marshalling update data:", err)
+// 		return
+// 	}
+
+// 	for wsClient := range websocketClients {
+// 		if err := wsClient.WriteMessage(websocket.TextMessage, updateData); err != nil {
+// 			log.Printf("WebSocket error: %v", err)
+// 			wsClient.Close()
+// 			delete(websocketClients, wsClient)
+// 		}
+// 	}
+// }
+
+func broadcastUnifiedUpdates() {
+	// Fetch text entries from Firestore
+	var textEntries []TextEntry
+	textIter := firestoreClient.Collection("texts").Documents(ctx)
 	for {
-		doc, err := iter.Next()
+		doc, err := textIter.Next()
 		if err == iterator.Done {
 			break
 		}
@@ -411,18 +518,40 @@ func broadcastTextUpdates() {
 
 		var entry TextEntry
 		doc.DataTo(&entry)
-		entries = append(entries, entry)
+		textEntries = append(textEntries, entry)
 	}
 
-	updateData, err := json.Marshal(map[string]interface{}{"entries": entries})
+	// Fetch asset entries from Firestore
+	var assetEntries []FirestoreAssetInfo
+	assetIter := firestoreClient.Collection("assets").Documents(ctx)
+	for {
+		doc, err := assetIter.Next()
+		if err == iterator.Done {
+			break
+		}
+		if err != nil {
+			log.Println("Firestore read error:", err)
+			return
+		}
+
+		var asset FirestoreAssetInfo
+		doc.DataTo(&asset)
+		assetEntries = append(assetEntries, asset)
+	}
+
+	// Combine text and asset entries into a unified data structure
+	unifiedData, err := json.Marshal(map[string]interface{}{"texts": textEntries, "assets": assetEntries})
+
+	log.Println("Unified data:", string(unifiedData))
 
 	if err != nil {
-		log.Println("Error marshalling update data:", err)
+		log.Println("Error marshalling unified data:", err)
 		return
 	}
 
+	// Broadcast the unified data to all WebSocket clients
 	for wsClient := range websocketClients {
-		if err := wsClient.WriteMessage(websocket.TextMessage, updateData); err != nil {
+		if err := wsClient.WriteMessage(websocket.TextMessage, unifiedData); err != nil {
 			log.Printf("WebSocket error: %v", err)
 			wsClient.Close()
 			delete(websocketClients, wsClient)

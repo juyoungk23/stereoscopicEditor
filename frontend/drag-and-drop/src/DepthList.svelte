@@ -6,7 +6,8 @@
 
   const dispatch = createEventDispatcher();
 
-  export let boxes = [];
+  export let texts = [];
+  export let elements = [];
   export let depthFactor = 0;
 
   let activeItem = null;
@@ -24,20 +25,22 @@
     list.addEventListener("dragend", () => {
       if (closestItem && activeItem) {
         const closestItemIndex = [...list.children].indexOf(closestItem);
-        const activeItemIndex = boxes.findIndex(
-          (box) => box.id === +activeItem.dataset.id
+        const activeItemIndex = texts.findIndex(
+          (text) => text.id === +activeItem.dataset.id
         );
 
-        [boxes[closestItemIndex], boxes[activeItemIndex]] = [
-          boxes[activeItemIndex],
-          boxes[closestItemIndex],
+        [texts[closestItemIndex], texts[activeItemIndex]] = [
+          texts[activeItemIndex],
+          texts[closestItemIndex],
         ];
         activeItem = null;
         closestItem = null;
 
-        dispatch("depthchange", boxes); // Notify parent component about the depth change
+        dispatch("depthchange", texts); // Notify parent component about the depth change
       }
     });
+
+    console.log(elements);
   });
 
   function getClosest(y, excludeElement) {
@@ -45,8 +48,8 @@
       .filter((item) => item !== excludeElement)
       .reduce(
         (closest, child) => {
-          const box = child.getBoundingClientRect();
-          const offset = y - box.top - box.height / 2;
+          const text = child.getBoundingClientRect();
+          const offset = y - text.top - text.height / 2;
           if (offset < 0 && offset > closest.offset) {
             return { offset: offset, element: child };
           } else {
@@ -60,19 +63,19 @@
 
 <aside>
   <ul id="draggable-list">
-    {#each boxes as box, index (box.id)}
+    {#each texts as text, index (text.id)}
       <li
         class="draggable-list-item"
         draggable="true"
-        data-id={box.id}
+        data-id={text.id}
         on:dragstart={(e) => e.target.classList.add("active")}
         on:dragend={(e) => e.target.classList.remove("active")}
       >
         <div class="card">
-          {box.text} (Depth: {depthFactor * (index + 1)} meters)
+          {text.text} (Depth: {depthFactor * (index + 1)} meters)
           <div class="buttons">
-            <button on:click={() => dispatch("edit", box.id)}>Edit</button>
-            <button on:click={() => dispatch("delete", box.id)}>Delete</button>
+            <button on:click={() => dispatch("edit", text.id)}>Edit</button>
+            <button on:click={() => dispatch("delete", text.id)}>Delete</button>
           </div>
         </div>
       </li>

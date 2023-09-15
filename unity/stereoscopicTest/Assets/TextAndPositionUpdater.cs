@@ -7,6 +7,13 @@ using UnityEngine.Networking;
 using System.Collections;
 
 [System.Serializable]
+public class CombinedResponse
+{
+    public List<TextEntry> texts;
+    public List<AssetInfo> assets;
+}
+
+[System.Serializable]
 public class TextEntry
 {
     public int id;
@@ -19,7 +26,7 @@ public class TextEntry
 [System.Serializable]
 public class TextResponse
 {
-    public List<TextEntry> entries;
+    public List<TextEntry> texts;
 }
 
 [System.Serializable]
@@ -50,6 +57,11 @@ public class TextAndPositionUpdater : MonoBehaviour
     private ConcurrentQueue<TextResponse> textMessageQueue = new ConcurrentQueue<TextResponse>();
     private ConcurrentQueue<AssetInfo> assetMessageQueue = new ConcurrentQueue<AssetInfo>();
 
+    private Dictionary<int, GameObject> assetObjects = new Dictionary<int, GameObject>();
+
+    private Dictionary<string, AssetBundle> loadedAssetBundles = new Dictionary<string, AssetBundle>();
+
+    private ConcurrentQueue<CombinedResponse> combinedMessageQueue = new ConcurrentQueue<CombinedResponse>();
     void Start()
     {
         ws = new WebSocket("ws://35.215.89.200:8080/ws");
@@ -71,21 +83,13 @@ public class TextAndPositionUpdater : MonoBehaviour
 
         ws.OnMessage += (sender, e) =>
         {
-            //Debug.Log("Received: " + e.Data);
             try
             {
-                TextResponse textResponse = JsonUtility.FromJson<TextResponse>(e.Data);
-                if (textResponse != null && textResponse.entries != null)
+                CombinedResponse combinedResponse = JsonUtility.FromJson<CombinedResponse>(e.Data);
+                if (combinedResponse != null)
                 {
-                    Debug.Log("Enqueuing text message with " + textResponse.entries.Count + " entries.");
-                    textMessageQueue.Enqueue(textResponse);
-                }
-
-                AssetInfo assetInfo = JsonUtility.FromJson<AssetInfo>(e.Data);
-                if (assetInfo != null && !string.IsNullOrEmpty(assetInfo.gcsLink))
-                {
-                    Debug.Log("Enqueuing asset message with GCS link: " + assetInfo.gcsLink + assetInfo.assetName + assetInfo.assetPosition);
-                    assetMessageQueue.Enqueue(assetInfo);
+                    Debug.Log("Enqueuing combined message.");
+                    combinedMessageQueue.Enqueue(combinedResponse);
                 }
             }
             catch (System.Exception ex)
@@ -99,29 +103,25 @@ public class TextAndPositionUpdater : MonoBehaviour
 
     void Update()
     {
-        // Process text messages in the main thread
-        while (textMessageQueue.TryDequeue(out TextResponse textResponse))
+        while (combinedMessageQueue.TryDequeue(out CombinedResponse combinedResponse))
         {
-            //Debug.Log("Dequeuing text message for UI update.");
-            UpdateTextUI(textResponse);
+            Debug.Log("Dequeued combined response: " + JsonUtility.ToJson(combinedResponse));
+            UpdateTextUI(new TextResponse { texts = combinedResponse.texts });
+
+            // Update assets
+            UpdateAssets(combinedResponse.assets);
         }
 
-        // Process asset messages in the main thread
-        while (assetMessageQueue.TryDequeue(out AssetInfo assetInfo))
-        {
-            //Debug.Log("Dequeuing asset message for asset loading.");
-            Vector3 position = new Vector3(assetInfo.assetPosition.x, assetInfo.assetPosition.y, assetInfo.assetPosition.z);
-            //Debug.Log("Asset will be instantiated at position: " + position); // Log for debugging
-            StartCoroutine(LoadAsset(assetInfo.gcsLink, assetInfo.assetName, position));
-        }
+
     }
 
     void UpdateTextUI(TextResponse response)
     {
-        //Debug.Log("Updating UI with " + response.entries.Count + " entries.");
+        Debug.Log("Received Text Response: " + JsonUtility.ToJson(response));
+
         List<int> processedIds = new List<int>();
 
-        foreach (var entry in response.entries)
+        foreach (var entry in response.texts)
         {
             GameObject textObj;
             if (!textObjects.TryGetValue(entry.id, out textObj))
@@ -136,10 +136,13 @@ public class TextAndPositionUpdater : MonoBehaviour
             TextMeshProUGUI textComponent = textObj.GetComponent<TextMeshProUGUI>();
             textComponent.text = entry.text;
 
-            //Debug.Log("Processed entry with ID: " + entry.id);
+            Debug.Log("Processed entry with ID: " + entry.id);
 
             processedIds.Add(entry.id);
         }
+
+
+        Debug.Log("Processed IDs: " + string.Join(", ", processedIds));
 
         // Delete GameObjects not in the processed list
         List<int> keys = new List<int>(textObjects.Keys);
@@ -152,16 +155,60 @@ public class TextAndPositionUpdater : MonoBehaviour
                 textObjects.Remove(key);
             }
         }
+
+        Debug.Log("Remaining Text Objects: " + textObjects.Count);
+    }
+    void UpdateAssets(List<AssetInfo> assets)
+    {
+        List<int> processedIds = new List<int>();
+
+        foreach (AssetInfo assetInfo in assets)
+        {
+            Vector3 position = new Vector3(assetInfo.assetPosition.x, assetInfo.assetPosition.y, assetInfo.assetPosition.z);
+
+            GameObject assetObj;
+            if (!assetObjects.TryGetValue(assetInfo.id, out assetObj))
+            {
+                // If asset object not found, load it
+                StartCoroutine(LoadAsset(assetInfo.gcsLink, assetInfo.assetName, position, assetInfo.id));
+            }
+            else
+            {
+                // Update position if already loaded
+                assetObj.transform.position = position;
+            }
+
+            processedIds.Add(assetInfo.id);
+        }
+
+        // Delete GameObjects not in the processed list
+        List<int> keys = new List<int>(assetObjects.Keys);
+        foreach (int key in keys)
+        {
+            if (!processedIds.Contains(key))
+            {
+                Destroy(assetObjects[key]);
+                assetObjects.Remove(key);
+            }
+        }
     }
 
-    IEnumerator LoadAsset(string uri, string assetName, Vector3 position)
+    IEnumerator LoadAsset(string uri, string assetName, Vector3 position, int id)
     {
         Debug.Log("Attempting to load asset from: " + uri);
+
+        if (loadedAssetBundles.ContainsKey(uri))
+        {
+            Debug.Log("Asset already loaded from: " + uri);
+            AssetBundle bundle = loadedAssetBundles[uri];
+            GameObject loadedAsset = bundle.LoadAsset<GameObject>(assetName);
+            Instantiate(loadedAsset, position, Quaternion.identity);
+            yield break;
+        }
 
         using (UnityWebRequest uwr = UnityWebRequestAssetBundle.GetAssetBundle(uri))
         {
             yield return uwr.SendWebRequest();
-
             if (uwr.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError("Failed to download asset: " + uwr.error);
@@ -169,10 +216,13 @@ public class TextAndPositionUpdater : MonoBehaviour
             else
             {
                 AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(uwr);
+                loadedAssetBundles[uri] = bundle;
                 GameObject loadedAsset = bundle.LoadAsset<GameObject>(assetName);
-                Instantiate(loadedAsset, position, Quaternion.identity);
+                GameObject instantiatedAsset = Instantiate(loadedAsset, position, Quaternion.identity);
+
+                // Add to assetObjects dictionary
+                assetObjects[id] = instantiatedAsset;
             }
         }
     }
-
 }
