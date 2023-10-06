@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 1156145574
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c5441406495f2adde62fc16f80e99a00
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 015d618ccc769b49f919fca69dda842f
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: c5441406495f2adde62fc16f80e99a00
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6d022da6541fe6144a0948571cfad5a1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4ac03f583a899fd43ba438d84cadfb45, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a1b69eb3f1c55974bb1bcc1dbc547a11, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 45d100e06f4a0744c8728e86700b5472, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c71b2c5e27c3a46ba06dd5eb916c5b, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Assembly-CSharp-firstpass
+  ClassName: TinyGiantStudio.Layout.LayoutElementModuleContainer
+- AssemblyName: Assembly-CSharp-firstpass
+  ClassName: TinyGiantStudio.Layout.Line
+- AssemblyName: Assembly-CSharp-firstpass
+  ClassName: TinyGiantStudio.Layout.MeshLayout
+- AssemblyName: Assembly-CSharp-firstpass
+  ClassName: TinyGiantStudio.Text.Character
+Assets:
+- Assets/text.prefab
+Dependencies: []

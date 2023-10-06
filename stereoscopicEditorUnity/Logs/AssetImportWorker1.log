@@ -8042,3 +8042,827 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
   custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x292587000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.452 seconds
+Refreshing native plugins compatible for Editor in 6.16 ms, found 14 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for VisionOS target not found
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  1.251 seconds
+Domain Reload Profiling: 1702ms
+	BeginReloadAssembly (137ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (72ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (16ms)
+	LoadAllAssembliesAndSetupDomain (269ms)
+		LoadAssemblies (254ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (46ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (24ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1251ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (611ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (64ms)
+			ProcessInitializeOnLoadAttributes (205ms)
+			ProcessInitializeOnLoadMethodAttributes (319ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 6.71 ms, found 14 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6542 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 162 unused Assets / (2.7 MB). Loaded Objects now: 7493.
+Memory consumption went from 0.61 GB to 0.60 GB.
+Total: 4.218875 ms (FindLiveObjects: 0.287875 ms CreateObjectMapping: 0.119292 ms MarkObjects: 2.735833 ms  DeleteObjects: 1.075209 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x292587000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.325 seconds
+Refreshing native plugins compatible for Editor in 5.99 ms, found 14 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for VisionOS target not found
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  1.290 seconds
+Domain Reload Profiling: 1615ms
+	BeginReloadAssembly (94ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (14ms)
+	LoadAllAssembliesAndSetupDomain (187ms)
+		LoadAssemblies (195ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (17ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1290ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (652ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (18ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (62ms)
+			ProcessInitializeOnLoadAttributes (212ms)
+			ProcessInitializeOnLoadMethodAttributes (355ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 6.73 ms, found 14 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6542 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 162 unused Assets / (2.8 MB). Loaded Objects now: 7498.
+Memory consumption went from 0.61 GB to 0.61 GB.
+Total: 4.802000 ms (FindLiveObjects: 0.348458 ms CreateObjectMapping: 0.223208 ms MarkObjects: 2.973708 ms  DeleteObjects: 1.256125 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x292587000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.340 seconds
+Refreshing native plugins compatible for Editor in 6.21 ms, found 14 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for VisionOS target not found
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  1.241 seconds
+Domain Reload Profiling: 1582ms
+	BeginReloadAssembly (94ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (14ms)
+	LoadAllAssembliesAndSetupDomain (202ms)
+		LoadAssemblies (190ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (37ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (18ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1242ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (643ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (64ms)
+			ProcessInitializeOnLoadAttributes (213ms)
+			ProcessInitializeOnLoadMethodAttributes (343ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 6.82 ms, found 14 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6542 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 162 unused Assets / (2.7 MB). Loaded Objects now: 7503.
+Memory consumption went from 0.62 GB to 0.61 GB.
+Total: 4.546959 ms (FindLiveObjects: 0.275542 ms CreateObjectMapping: 0.161958 ms MarkObjects: 3.005042 ms  DeleteObjects: 1.104125 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x292587000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.314 seconds
+Refreshing native plugins compatible for Editor in 6.26 ms, found 14 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for VisionOS target not found
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  0.980 seconds
+Domain Reload Profiling: 1294ms
+	BeginReloadAssembly (99ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (15ms)
+	LoadAllAssembliesAndSetupDomain (170ms)
+		LoadAssemblies (179ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (18ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (981ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (677ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (24ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (71ms)
+			ProcessInitializeOnLoadAttributes (220ms)
+			ProcessInitializeOnLoadMethodAttributes (355ms)
+			AfterProcessingInitializeOnLoad (2ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 6.89 ms, found 14 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6542 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 162 unused Assets / (2.7 MB). Loaded Objects now: 7508.
+Memory consumption went from 0.62 GB to 0.62 GB.
+Total: 4.956500 ms (FindLiveObjects: 0.287458 ms CreateObjectMapping: 0.198792 ms MarkObjects: 3.212292 ms  DeleteObjects: 1.257584 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+Thread 0x292587000 may have been prematurely finalized
+- Loaded All Assemblies, in  0.406 seconds
+Refreshing native plugins compatible for Editor in 6.36 ms, found 14 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for VisionOS target not found
+Native extension for iOS target not found
+Native extension for OSXStandalone target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Finished resetting the current domain, in  1.307 seconds
+Domain Reload Profiling: 1714ms
+	BeginReloadAssembly (128ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (68ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (20ms)
+	LoadAllAssembliesAndSetupDomain (228ms)
+		LoadAssemblies (214ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (43ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (2ms)
+			ScanForSourceGeneratedMonoScriptInfo (21ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1307ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (670ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (25ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (65ms)
+			ProcessInitializeOnLoadAttributes (227ms)
+			ProcessInitializeOnLoadMethodAttributes (348ms)
+			AfterProcessingInitializeOnLoad (1ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 6.77 ms, found 14 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 6564 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 162 unused Assets / (2.7 MB). Loaded Objects now: 7535.
+Memory consumption went from 0.63 GB to 0.62 GB.
+Total: 4.266666 ms (FindLiveObjects: 0.279084 ms CreateObjectMapping: 0.134791 ms MarkObjects: 2.791875 ms  DeleteObjects: 1.060458 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: 3918e3fc78b5a79bad01e8451be0beb8 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 41213.429368 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Bouncy Physics Mat.physicMaterial
+  artifactKey: Guid(744b2e219365ca6488f2d013cf79a7c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Bouncy Physics Mat.physicMaterial using Guid(744b2e219365ca6488f2d013cf79a7c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4d57c412ffc8b1f704655a7c496fd8c') in 0.011477 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Grid 160 x 160.mat
+  artifactKey: Guid(26007285ccfaf9e438126c4a0c71f5de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Grid 160 x 160.mat using Guid(26007285ccfaf9e438126c4a0c71f5de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2c21b3c64afc4435ec4cc9ebb88eb1a') in 0.116215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 21
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_White Transparent.mat
+  artifactKey: Guid(4e825b6161062c748a795a28cd0fb457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_White Transparent.mat using Guid(4e825b6161062c748a795a28cd0fb457) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f1fd09a2ff0bba7beb6d9d53e18b8ef') in 0.035556 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Scene Environment.mat
+  artifactKey: Guid(de356cea70fa8824eb10f3089a321e93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Scene Environment.mat using Guid(de356cea70fa8824eb10f3089a321e93) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce1e51b3c6211718b0f83df5f8340d85') in 0.004929 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Red.mat
+  artifactKey: Guid(3d8563705655a4245b274398956f938f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Red.mat using Guid(3d8563705655a4245b274398956f938f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7899909c1b7124c17b75e8b45e3d4f7d') in 0.004223 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Scene Texture.png
+  artifactKey: Guid(930527770b33c234ab6f3caf6847ed16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Scene Texture.png using Guid(930527770b33c234ab6f3caf6847ed16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf03c6392630c79e35e80286add9f783') in 0.009994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Grey Light Dark.mat
+  artifactKey: Guid(a25ca6aee6a441c4486f29a0624c9606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Grey Light Dark.mat using Guid(a25ca6aee6a441c4486f29a0624c9606) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ba35fe106fdcf3de46950f76efa7a40') in 0.003833 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Grey.mat
+  artifactKey: Guid(b1b4721719ff98b4abf45943c7e47451) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Grey.mat using Guid(b1b4721719ff98b4abf45943c7e47451) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd009178101d9f0cd3e34919894d90d72') in 0.003859 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Yellow.mat
+  artifactKey: Guid(77525814b5df7c84abd206468800e0eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_Yellow.mat using Guid(77525814b5df7c84abd206468800e0eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31c5c92befbf98cff8e882349b083260') in 0.004042 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_White Dark.mat
+  artifactKey: Guid(01026a7aa911b8543bf3d8c45775fe16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiny Giant Studio/Modular 3D Text/Materials/MText_White Dark.mat using Guid(01026a7aa911b8543bf3d8c45775fe16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cadf22804c0ee9a12253aa465171fe21') in 0.006254 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 96.235388 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Rounded Mplus 1c.asset
+  artifactKey: Guid(587f579a95a2d3442a4bc54fee5788e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Rounded Mplus 1c.asset using Guid(587f579a95a2d3442a4bc54fee5788e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4bd35a4f8a099b6cfb4027ec3f390df') in 0.020357 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Rounded Mplus 1c Bold.asset
+  artifactKey: Guid(db77b938927bd344182b9b966d4e7172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Rounded Mplus 1c Bold.asset using Guid(db77b938927bd344182b9b966d4e7172) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c719fcbe591d5c07e63c9515c9364437') in 0.023244 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Sevillana.asset
+  artifactKey: Guid(0d5120db5d9c5b34a96828b4e66bde5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Sevillana.asset using Guid(0d5120db5d9c5b34a96828b4e66bde5f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c5eb165580df79b22983ff1fa2948b2') in 0.009848 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Rum Raisin.asset
+  artifactKey: Guid(403c6c6d4fbbdf0489435ff19aca45be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Rum Raisin.asset using Guid(403c6c6d4fbbdf0489435ff19aca45be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cdfd97d9882e2f65b4e75fd7be4ee74') in 0.006617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 2.931539 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Shojumaru.asset
+  artifactKey: Guid(82ac9550f4b0dce4b8ca64a97458c09f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Shojumaru.asset using Guid(82ac9550f4b0dce4b8ca64a97458c09f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '611328c29c0c1660e377fa40cc2d894f') in 0.007745 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.959002 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Sniglet-ExtraBold.asset
+  artifactKey: Guid(f51af64e349dc5a47854a77843ca6ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Sniglet-ExtraBold.asset using Guid(f51af64e349dc5a47854a77843ca6ac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c616a3d0f67c31baed0fe13e74ff9f6') in 0.009107 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.063627 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Srisakdi Bold.asset
+  artifactKey: Guid(6d61be090d73ef94eabd0cb9cf29c17c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Srisakdi Bold.asset using Guid(6d61be090d73ef94eabd0cb9cf29c17c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3eaf61738e15468f1f2c913eec7d757') in 0.006842 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 1.919723 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Stint Ultra Condensed.asset
+  artifactKey: Guid(724b2d6d1116dd546827871e1592772e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Stint Ultra Condensed.asset using Guid(724b2d6d1116dd546827871e1592772e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a24dd9c48e22a20057ed2e5ed37e604') in 0.008878 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 2.446110 seconds.
+  path: Assets/Resources/MyCustomFonts/Young Serif Regular.asset
+  artifactKey: Guid(22341395ab6914d15b156274f25ac40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MyCustomFonts/Young Serif Regular.asset using Guid(22341395ab6914d15b156274f25ac40f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58f574c954f495980db0b3cab243a825') in 0.003396 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1.899721 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/ZCOOL XiaoWei Regular.asset
+  artifactKey: Guid(fc745b80eda657c4a9c5763681222ff3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/ZCOOL XiaoWei Regular.asset using Guid(fc745b80eda657c4a9c5763681222ff3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c88a62876a7cdbb849479d53fdb6e3c2') in 0.040686 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 3.895802 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Ribeye Marrow.asset
+  artifactKey: Guid(3250a562e6c8b864497d9b4c31990afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Ribeye Marrow.asset using Guid(3250a562e6c8b864497d9b4c31990afc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '657d05e8b2e7d60072bceb0b06ff5418') in 0.009622 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 469
+========================================================================
+Received Import Request.
+  Time since last request: 0.282593 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Raleway.asset
+  artifactKey: Guid(6546bbac5f9ab9643b4638b87df041b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Raleway.asset using Guid(6546bbac5f9ab9643b4638b87df041b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85404f3fa3f08f229d8fb24cb825e9a5') in 0.007056 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Press Start 2P Regular.asset
+  artifactKey: Guid(7f6361271127181468ed0669f6f265d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Press Start 2P Regular.asset using Guid(7f6361271127181468ed0669f6f265d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '24328a3388cc905c2b2469177dde0a57') in 0.005991 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Permanent Marker Regular.asset
+  artifactKey: Guid(0b933f78b4e42544f820b51c5927e3ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Permanent Marker Regular.asset using Guid(0b933f78b4e42544f820b51c5927e3ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f489a5be08db8ab31ca814d033155603') in 0.009823 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.023917 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Peralta.asset
+  artifactKey: Guid(c1807432f28d2a44991af86bfa11c9b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Peralta.asset using Guid(c1807432f28d2a44991af86bfa11c9b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6a8c7a8999569ee8e8c80616c6976df') in 0.006631 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.201377 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Oregano Italic.asset
+  artifactKey: Guid(74421708031f343468119d87c9924aaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Oregano Italic.asset using Guid(74421708031f343468119d87c9924aaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7aa0374a0fa664aa2bad7127c665223a') in 0.011717 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Orbitron-Light.asset
+  artifactKey: Guid(341f32467d0d6cb4c94cae608cb919aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Orbitron-Light.asset using Guid(341f32467d0d6cb4c94cae608cb919aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85f5957b54f5e845f26f4f275e836b93') in 0.004925 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.346953 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Orbitron-Black.asset
+  artifactKey: Guid(648431516921e154ea55f5b2e47b6179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Orbitron-Black.asset using Guid(648431516921e154ea55f5b2e47b6179) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14359472c0d7291115199f7891a337b3') in 0.007527 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Mouse Memoirs.asset
+  artifactKey: Guid(ffd9be3dc563ee8489bd724da29d14f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Mouse Memoirs.asset using Guid(ffd9be3dc563ee8489bd724da29d14f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf72463d7308c517ad06da9be6961f68') in 0.007234 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Monoton.asset
+  artifactKey: Guid(408b775de2ac26f40839cf95727b6247) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Monoton.asset using Guid(408b775de2ac26f40839cf95727b6247) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '09932f35b355a351372dc600f7905c85') in 0.007802 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Nanum Brush Script.asset
+  artifactKey: Guid(7bb3dd4d28b242d4ba3275aebf28313d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Nanum Brush Script.asset using Guid(7bb3dd4d28b242d4ba3275aebf28313d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57b951a8679772ea132dc8ca689fc9f9') in 0.020811 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Resources/MyCustomFonts/Martian Mono SemiExpanded Regular.asset
+  artifactKey: Guid(6ffd75f484717494e8f9d364f05a9da1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MyCustomFonts/Martian Mono SemiExpanded Regular.asset using Guid(6ffd75f484717494e8f9d364f05a9da1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01dae0975cf94c579b811e7dd36bda8d') in 0.002447 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000075 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Marcellus.asset
+  artifactKey: Guid(a4ee23a95de4c8c44a7ba74f1e53931e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Marcellus.asset using Guid(a4ee23a95de4c8c44a7ba74f1e53931e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9fac6b236d0ccbacb4070ff6023a42b') in 0.005831 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.164678 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Linden Hill Regular.asset
+  artifactKey: Guid(00731ef6f0c898f4dbba5bd6d53b25fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Linden Hill Regular.asset using Guid(00731ef6f0c898f4dbba5bd6d53b25fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a2d38484965b64b1cb11bde7ad767e1') in 0.006466 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Gothic SemiCondensed Regular.asset
+  artifactKey: Guid(509eb2f790aa0fc429a532f93ced66c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Gothic SemiCondensed Regular.asset using Guid(509eb2f790aa0fc429a532f93ced66c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '08d404a24148adf54070c4e745ea27dd') in 0.005639 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Mono Condensed.asset
+  artifactKey: Guid(b3d766a1c1bdbad4787a79f377cd4db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Mono Condensed.asset using Guid(b3d766a1c1bdbad4787a79f377cd4db1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49d8348cad4fb2346b2ab224d6579909') in 0.004488 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Mono Condensed Bold.asset
+  artifactKey: Guid(b4da1d0f39e7d3c42a7238fda6ba5675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Mono Condensed Bold.asset using Guid(b4da1d0f39e7d3c42a7238fda6ba5675) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6825a8aef6282bf47cf754511bdc022') in 0.007179 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.176980 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Gothic Italic Regular.asset
+  artifactKey: Guid(78d2bde9b0117084fa694e4487b894e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/League Gothic Italic Regular.asset using Guid(78d2bde9b0117084fa694e4487b894e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9e4b1c916568bb56079d0643e721e68') in 0.005813 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Indie Flower.asset
+  artifactKey: Guid(a49e4b80aa60a7144851589a14459a0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Indie Flower.asset using Guid(a49e4b80aa60a7144851589a14459a0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1bd90b450e7a72f3e214406b0af9e3ec') in 0.008001 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.015711 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Goudy Bookletter 1911.asset
+  artifactKey: Guid(3d69ceaf9611030489d42639bc7d4998) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Goudy Bookletter 1911.asset using Guid(3d69ceaf9611030489d42639bc7d4998) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dd0c13854257edc0e775f8f15358d44') in 0.006844 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.787831 seconds.
+  path: Assets/Resources/MyCustomFonts/Futura-CondensedExtraBold.asset
+  artifactKey: Guid(0e454510b60d441989755d543d32f373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/MyCustomFonts/Futura-CondensedExtraBold.asset using Guid(0e454510b60d441989755d543d32f373) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '667206a618eb84f74ebbe31816cc4569') in 0.002264 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fondamento Regular.asset
+  artifactKey: Guid(f6b4104890685534ba38ab78aa87b16b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fondamento Regular.asset using Guid(f6b4104890685534ba38ab78aa87b16b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33e81c61431cc30316f49dab37bb8e93') in 0.006544 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fondamento-Italic.asset
+  artifactKey: Guid(dc822139db76a9c44bad2735547d0ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fondamento-Italic.asset using Guid(dc822139db76a9c44bad2735547d0ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '455f3c37f5303f11097f805b16516ccd') in 0.006862 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Freckle Face.asset
+  artifactKey: Guid(fb3bff0afd4fd5a42a7d379302600709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Freckle Face.asset using Guid(fb3bff0afd4fd5a42a7d379302600709) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '727810c669edaa172aa85a70c30b4920') in 0.012803 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fanwood Text Italic.asset
+  artifactKey: Guid(19bc4487743d6ce47a7b258d6106fbaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fanwood Text Italic.asset using Guid(19bc4487743d6ce47a7b258d6106fbaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9751eb34b2cedeef5a3c2355516ea84e') in 0.006568 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.710579 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fanwood Text.asset
+  artifactKey: Guid(84440dbd0f49af04585f2883b3822391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Fanwood Text.asset using Guid(84440dbd0f49af04585f2883b3822391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54e16d3625be418aaf16139dfd2c3b45') in 0.009677 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bungee Outline.asset
+  artifactKey: Guid(e3a01be49edac9949b5417d370627f38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bungee Outline.asset using Guid(e3a01be49edac9949b5417d370627f38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b60fde692326aa9ab74b9dcec8588b56') in 0.011502 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Codystar Light.asset
+  artifactKey: Guid(ce269754075613a4a8994222d43223f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Codystar Light.asset using Guid(ce269754075613a4a8994222d43223f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ee6e78b6d2feee640843dc5c527c6d6') in 0.018878 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bungee Inline.asset
+  artifactKey: Guid(e19ae0fd9b1202d419baa6f1be728c27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bungee Inline.asset using Guid(e19ae0fd9b1202d419baa6f1be728c27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '420af438a42ecbd72bbd35d6ab83e83c') in 0.006904 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.175403 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bungee Hairline.asset
+  artifactKey: Guid(09d8e6b80e5531e458ea9a44cb86efea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bungee Hairline.asset using Guid(09d8e6b80e5531e458ea9a44cb86efea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a39eef07d2dc8a500d6867246fa61ba') in 0.005768 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Blackout Midnight.asset
+  artifactKey: Guid(0e9221478779a5f4c83163db6f376864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Blackout Midnight.asset using Guid(0e9221478779a5f4c83163db6f376864) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c670c8c2832d0266f1f7f2a0ca7e329') in 0.004815 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 469
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bigelow Rules Regular.asset
+  artifactKey: Guid(f9b81179112c6a34c894068127884f79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bigelow Rules Regular.asset using Guid(f9b81179112c6a34c894068127884f79) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ef585d6f90247b50f492eb0f273cd3c') in 0.006815 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.031908 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bahianita Regular.asset
+  artifactKey: Guid(02da5fce35e4fb444b7dfffeccebef38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Bahianita Regular.asset using Guid(02da5fce35e4fb444b7dfffeccebef38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1520c9d5b9bf9cde1a32696b738b1f3a') in 0.005392 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 469
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Barrio Regular.asset
+  artifactKey: Guid(8c2bcfb24caa1c2489b694f7d7c1cd55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Barrio Regular.asset using Guid(8c2bcfb24caa1c2489b694f7d7c1cd55) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5832a17d4f9b2f7ccc3bd6a111e1584') in 0.007341 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Import Request.
+  Time since last request: 0.147977 seconds.
+  path: Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Amatic SC Regular.asset
+  artifactKey: Guid(5daa23a60c1d1b3498f41386cd9abb6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Plugins/Tiny Giant Studio/Modular 3D Text/Fonts/Amatic SC Regular.asset using Guid(5daa23a60c1d1b3498f41386cd9abb6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a60bb7223850a861bd5f84b72e53280f') in 0.007652 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 474
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 21.01 ms, found 14 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 24 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (2.7 MB). Loaded Objects now: 7622.
+Memory consumption went from 0.52 GB to 0.52 GB.
+Total: 17.715708 ms (FindLiveObjects: 0.425958 ms CreateObjectMapping: 0.183542 ms MarkObjects: 15.925250 ms  DeleteObjects: 1.180292 ms)
+

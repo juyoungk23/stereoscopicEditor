@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TinyGiantStudio.Text;
 using ColorUtility = UnityEngine.ColorUtility;
 
 namespace VRUIP
@@ -12,13 +13,13 @@ namespace VRUIP
     {
         [Header("Events")]
         public UnityEvent<Color> onColorChanged;
-        
         [Header("Components")]
         [SerializeField] private Image background;
         [SerializeField] private Image gradientImage;
         [SerializeField] private Image currentColorImage;
         [SerializeField] private Image currentColorOutline;
-        [SerializeField] private Slider hueSlider;
+        [SerializeField] private UnityEngine.UI.Slider hueSlider;
+
         [SerializeField] private Image handleImage;
         [SerializeField] private Image handleOutline;
         [SerializeField] private Image sliderBackground;
@@ -43,6 +44,24 @@ namespace VRUIP
             SetupColorPicker();
         }
 
+        void Update()
+        {
+            GameObject selectedObject = SelectedObjectTracker.selectedObject;  // Use SelectedObjectTracker.selectedObject
+            if (selectedObject != null)
+            {
+                var textComponent = selectedObject.GetComponent<Modular3DText>();
+                if (textComponent != null)
+                {
+                    var colorChanger = selectedObject.GetComponent<ColorChanger>();
+                    if (colorChanger != null)
+                    {
+                        colorChanger.ChangeColor(_currentColor);
+                    }
+                }
+            }
+        }
+
+
         protected override void SetColors(ColorTheme theme)
         {
             background.color = theme.primaryColor;
@@ -64,18 +83,18 @@ namespace VRUIP
             _gradientScreenWidth = gradientRect.width;
             GetCurrentColor();
         }
-        
+
         private void OnSliderValueChanged(float value)
         {
             // Update the current hue
-            _currentHue = (int) value;
+            _currentHue = (int)value;
 
             // Update the gradient
             SetGradient();
-            
+
             // Set slider handle color
             handleImage.color = Color.HSVToRGB(_currentHue / 360f, 1, 1);
-            
+
             // Update the current color
             GetCurrentColor();
         }
@@ -91,10 +110,10 @@ namespace VRUIP
             _currentColor = color;
             currentColorImage.color = color;
             Color.RGBToHSV(color, out var h, out var s, out var v);
-            _currentHue = (int) Mathf.Round(h * 360);
-            _currentSaturation = (int) Mathf.Round(s * 100);
-            _currentValue = (int) Mathf.Round(v * 100);
-            
+            _currentHue = (int)Mathf.Round(h * 360);
+            _currentSaturation = (int)Mathf.Round(s * 100);
+            _currentValue = (int)Mathf.Round(v * 100);
+
             // Update the slider
             hueSlider.SetValueWithoutNotify(_currentHue);
             // Update the gradient
@@ -154,12 +173,12 @@ namespace VRUIP
                 var pixelColor = Color.HSVToRGB(x / 360f, 1, 1);
                 gradientTexture.SetPixel(x, 0, pixelColor);
             }
-            
+
             gradientTexture.Apply();
             var gradientSprite = Sprite.Create(gradientTexture, new Rect(0f, 0f, 360, 1), new Vector2(0.5f, 0.5f));
             sliderBackground.sprite = gradientSprite;
         }
-        
+
         /// <summary>
         /// Get the current color based on the picker position.
         /// </summary>
@@ -168,8 +187,8 @@ namespace VRUIP
             var position = colorPickerCircle.transform.localPosition;
             var saturation = position.x / _gradientScreenWidth;
             var value = Mathf.Abs(position.y / _gradientScreenHeight);
-            _currentSaturation = (int) Mathf.Round(saturation * 100);
-            _currentValue = (int) Mathf.Round(value * 100);
+            _currentSaturation = (int)Mathf.Round(saturation * 100);
+            _currentValue = (int)Mathf.Round(value * 100);
             var color = Color.HSVToRGB(_currentHue / 360f, _currentSaturation / 100f, _currentValue / 100f);
             currentColorImage.color = color;
             _currentColor = color;
@@ -187,7 +206,7 @@ namespace VRUIP
                 GetCurrentColor();
             }
         }
-        
+
         public void OnDrag(PointerEventData eventData)
         {
             if (eventData.pointerCurrentRaycast.gameObject == gradientImage.gameObject)

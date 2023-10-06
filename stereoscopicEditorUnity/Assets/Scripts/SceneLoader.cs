@@ -175,16 +175,19 @@ public class SceneLoader : MonoBehaviour
                 textComponent.Material = originalMaterial;
                 Debug.Log("Material reapplied to Text: " + textComponent.Material.name);
 
-                // Add a MeshRenderer component to the GameObject
-                MeshRenderer meshRenderer = go.AddComponent<MeshRenderer>();
+                // Get existing MeshRenderer and ColorChanger components
+                MeshRenderer meshRenderer = go.GetComponent<MeshRenderer>();
+                VRUIP.ColorChanger colorChanger = go.GetComponent<VRUIP.ColorChanger>();
 
-                // Add a ColorChanger script to the GameObject
-                VRUIP.ColorChanger colorChanger = go.AddComponent<VRUIP.ColorChanger>();
-
-
-                // In SceneLoader.cs
-                colorChanger.SetMeshRenderer(meshRenderer);
-
+                if (meshRenderer != null && colorChanger != null)
+                {
+                    // Link the existing MeshRenderer to the ColorChanger
+                    colorChanger.SetMeshRenderer(meshRenderer);
+                }
+                else
+                {
+                    Debug.LogWarning("MeshRenderer or ColorChanger component not found on the GameObject.");
+                }
 
                 if (!string.IsNullOrEmpty(newTextContent))
                 {
