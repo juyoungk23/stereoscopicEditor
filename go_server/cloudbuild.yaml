@@ -1,9 +1,0 @@
-steps:
-  - name: "gcr.io/cloud-builders/go"
-    args: ["build", "-o", "server.go", "./simple_api.go"]
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "scp", "server.go", "unity-test:~/"]
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "ssh", "unity-test", "--command", "chmod +x ~/server.go"]
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["compute", "ssh", "unity-test", "--command", "nohup ~/server.go &"]
