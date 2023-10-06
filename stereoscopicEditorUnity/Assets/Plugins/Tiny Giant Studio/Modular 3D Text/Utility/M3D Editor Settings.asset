@@ -24,45 +24,29 @@ MonoBehaviour:
   defaultTextSize: {x: 8, y: 8, z: 8}
   defaultTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5, type: 2}
   defaultButtonNormalTextSize: {x: 8, y: 8, z: 8}
-  defaultButtonNormalTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5,
-    type: 2}
-  defaultButtonNormalBackgroundMaterial: {fileID: 2100000, guid: 01026a7aa911b8543bf3d8c45775fe16,
-    type: 2}
+  defaultButtonNormalTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5, type: 2}
+  defaultButtonNormalBackgroundMaterial: {fileID: 2100000, guid: 01026a7aa911b8543bf3d8c45775fe16, type: 2}
   defaultButtonSelectedTextSize: {x: 8.2, y: 8.2, z: 8.2}
-  defaultButtonSelectedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5,
-    type: 2}
-  defaultButtonSelectedBackgroundMaterial: {fileID: 2100000, guid: b2b6c5f04ab123a49941855cbdf9a358,
-    type: 2}
+  defaultButtonSelectedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5, type: 2}
+  defaultButtonSelectedBackgroundMaterial: {fileID: 2100000, guid: b2b6c5f04ab123a49941855cbdf9a358, type: 2}
   defaultButtonPressedTextSize: {x: 8.5, y: 8.5, z: 8.5}
-  defaultButtonPressedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5,
-    type: 2}
-  defaultButtonPressedBackgroundMaterial: {fileID: 2100000, guid: 3d8563705655a4245b274398956f938f,
-    type: 2}
+  defaultButtonPressedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5, type: 2}
+  defaultButtonPressedBackgroundMaterial: {fileID: 2100000, guid: 3d8563705655a4245b274398956f938f, type: 2}
   defaultButtonDisabledTextSize: {x: 8, y: 8, z: 8}
-  defaultButtonDisabledTextMaterial: {fileID: 2100000, guid: c958ce690de9a0841b7b2d7f597ac79a,
-    type: 2}
-  defaultButtonDisabledBackgroundMaterial: {fileID: 2100000, guid: b1b4721719ff98b4abf45943c7e47451,
-    type: 2}
+  defaultButtonDisabledTextMaterial: {fileID: 2100000, guid: c958ce690de9a0841b7b2d7f597ac79a, type: 2}
+  defaultButtonDisabledBackgroundMaterial: {fileID: 2100000, guid: b1b4721719ff98b4abf45943c7e47451, type: 2}
   defaultListNormalTextSize: {x: 8, y: 8, z: 8}
-  defaultListNormalTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5,
-    type: 2}
-  defaultListNormalBackgroundMaterial: {fileID: 2100000, guid: 01026a7aa911b8543bf3d8c45775fe16,
-    type: 2}
+  defaultListNormalTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5, type: 2}
+  defaultListNormalBackgroundMaterial: {fileID: 2100000, guid: 01026a7aa911b8543bf3d8c45775fe16, type: 2}
   defaultListSelectedTextSize: {x: 8.2, y: 8.2, z: 8.2}
-  defaultListSelectedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5,
-    type: 2}
-  defaultListSelectedBackgroundMaterial: {fileID: 2100000, guid: b2b6c5f04ab123a49941855cbdf9a358,
-    type: 2}
+  defaultListSelectedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5, type: 2}
+  defaultListSelectedBackgroundMaterial: {fileID: 2100000, guid: b2b6c5f04ab123a49941855cbdf9a358, type: 2}
   defaultListPressedTextSize: {x: 8.5, y: 8.5, z: 8.5}
-  defaultListPressedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5,
-    type: 2}
-  defaultListPressedBackgroundMaterial: {fileID: 2100000, guid: 3d8563705655a4245b274398956f938f,
-    type: 2}
+  defaultListPressedTextMaterial: {fileID: 2100000, guid: 323309279f3626a4ba74c611555546c5, type: 2}
+  defaultListPressedBackgroundMaterial: {fileID: 2100000, guid: 3d8563705655a4245b274398956f938f, type: 2}
   defaultListDisabledTextSize: {x: 8, y: 8, z: 8}
-  defaultListDisabledTextMaterial: {fileID: 2100000, guid: c958ce690de9a0841b7b2d7f597ac79a,
-    type: 2}
-  defaultListDisabledBackgroundMaterial: {fileID: 2100000, guid: b1b4721719ff98b4abf45943c7e47451,
-    type: 2}
+  defaultListDisabledTextMaterial: {fileID: 2100000, guid: c958ce690de9a0841b7b2d7f597ac79a, type: 2}
+  defaultListDisabledBackgroundMaterial: {fileID: 2100000, guid: b1b4721719ff98b4abf45943c7e47451, type: 2}
   smallHorizontalFieldSize: 72.5
   normalltHorizontalFieldSize: 100
   largeHorizontalFieldSize: 132.5
@@ -81,5 +65,4 @@ MonoBehaviour:
   sizeZ: 1
   smoothingAngle: 30
   meshExportStyle: 0
-  _inputActionAsset: {fileID: -944628639613478452, guid: 40bc6dd3dcc19c743a66ce4527683ead,
-    type: 3}
+  _inputActionAsset: {fileID: -944628639613478452, guid: 40bc6dd3dcc19c743a66ce4527683ead, type: 3}
