@@ -1,0 +1,31 @@
+{
+  "project_info": {
+    "project_number": "315618272162",
+    "project_id": "xcainventorytracker-83807",
+    "storage_bucket": "xcainventorytracker-83807.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315618272162:ios:6fab3896ecca567c1b48fb",
+        "android_client_info": {
+          "package_name": "com.juyoungkim.XCAInventoryTrackerUnity"
+        }
+      },
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyUGB_hf3-Wqsx6U9W-N_6Pg8U35fBL2c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 0
+        },
+        "appinvite_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
