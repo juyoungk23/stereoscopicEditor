@@ -8,7 +8,7 @@ namespace VRUIP
     public class ColorChanger : MonoBehaviour
     {
         [Header("Components")]
-        [SerializeField] private MeshRenderer meshRenderer;
+        [SerializeField] public MeshRenderer meshRenderer;
 
         public void ChangeColor(Color color)
         {

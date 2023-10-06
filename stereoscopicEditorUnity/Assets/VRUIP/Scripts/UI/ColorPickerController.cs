@@ -13,6 +13,9 @@ namespace VRUIP
     {
         [Header("Events")]
         public UnityEvent<Color> onColorChanged;
+
+        private GameObject lastSelectedObject = null;  // Add this line to the class variables
+
         [Header("Components")]
         [SerializeField] private Image background;
         [SerializeField] private Image gradientImage;
@@ -47,7 +50,9 @@ namespace VRUIP
         void Update()
         {
             GameObject selectedObject = SelectedObjectTracker.selectedObject;  // Use SelectedObjectTracker.selectedObject
-            if (selectedObject != null)
+            bool hasSelectedObjectChanged = lastSelectedObject != selectedObject;
+            lastSelectedObject = selectedObject;
+            if (selectedObject != null && hasSelectedObjectChanged)
             {
                 var textComponent = selectedObject.GetComponent<Modular3DText>();
                 if (textComponent != null)
@@ -55,12 +60,54 @@ namespace VRUIP
                     var colorChanger = selectedObject.GetComponent<ColorChanger>();
                     if (colorChanger != null)
                     {
-                        colorChanger.ChangeColor(_currentColor);
+                        Color currentObjectColor = colorChanger.meshRenderer.material.color; // Get the current color from MeshRenderer
+
+                        // Only update color picker UI when a new object is selected and its color is different
+                        if (currentObjectColor != _currentColor)
+                        {
+                            SetInitialColor(currentObjectColor);
+                        }
                     }
+                }
+            }
+            else if (selectedObject != null)
+            {
+                var colorChanger = selectedObject.GetComponent<ColorChanger>();
+                if (colorChanger != null)
+                {
+                    // Change color of the selected object based on the current color from color picker
+                    colorChanger.ChangeColor(_currentColor);
                 }
             }
         }
 
+        // New Method to set the initial color of the color picker
+        private void SetInitialColor(Color color)
+        {
+            // Update the internal current color
+            _currentColor = color;
+
+            // Update the color picker UI elements
+            currentColorImage.color = color;
+            Color.RGBToHSV(color, out var h, out var s, out var v);
+            _currentHue = (int)Mathf.Round(h * 360);
+            _currentSaturation = (int)Mathf.Round(s * 100);
+            _currentValue = (int)Mathf.Round(v * 100);
+
+            // Update the hue slider
+            hueSlider.SetValueWithoutNotify(_currentHue);
+
+            // Update the gradient background
+            SetGradient();
+
+            // Update the picker circle position
+            var position = new Vector2(_currentSaturation / 100f * _gradientScreenWidth, _currentValue / 100f * _gradientScreenHeight);
+            colorPickerCircle.transform.localPosition = position;
+
+            // Update the hex color text
+            var unformattedHex = color.ToHexString();
+            currentColorText.SetTextWithoutNotify("#" + unformattedHex[..6]);
+        }
 
         protected override void SetColors(ColorTheme theme)
         {
