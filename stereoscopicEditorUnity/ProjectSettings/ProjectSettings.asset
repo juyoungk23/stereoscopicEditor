@@ -751,6 +751,7 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     Standalone: MODULAR_3D_TEXT
+    iPhone: MODULAR_3D_TEXT
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
