@@ -117,7 +117,9 @@ namespace UnityTemplateProjects
             movementAction.Enable();
             lookAction.Enable();
             verticalMovementAction.Enable();
-            boostFactorAction.Enable();
+
+            // Commenting this out. Uncomment to allow scrolling to affect boost factor.
+            // boostFactorAction.Enable();
         }
 
 #endif
