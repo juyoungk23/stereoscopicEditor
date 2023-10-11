@@ -2422,7 +2422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4410,6 +4410,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311740147}
   m_CullTransparentMesh: 1
+--- !u!1 &318350887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6760721733784323607, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
+  m_PrefabInstance: {fileID: 927259511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &318350890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318350887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &322922825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5452,7 +5501,7 @@ PrefabInstance:
       objectReference: {fileID: 1435282674763770568, guid: 3fe68ef7bfb24f94480ea75fad5450bf, type: 3}
     - target: {fileID: 2614948783529370186, guid: c6352df1cea04ff44ba0b47085ee9b5a, type: 3}
       propertyPath: colorMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2614948783529370186, guid: c6352df1cea04ff44ba0b47085ee9b5a, type: 3}
       propertyPath: mainCamera
@@ -7993,7 +8042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9400,8 +9449,7 @@ Transform:
   m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
-  m_Children:
-  - {fileID: 927259512}
+  m_Children: []
   m_Father: {fileID: 60423751}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &772495974 stripped
@@ -10704,7 +10752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10735,39 +10783,59 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 765399669}
+    m_TransformParent: {fileID: 543450653599688631}
     m_Modifications:
+    - target: {fileID: 6760721733381959022, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760721734073652322, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.019999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.019999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.00009999992
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0006999999
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.1
+      value: -0.0041
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837710, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -10787,12 +10855,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6760721734306837713, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6760721733784323607, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 318350890}
   m_SourcePrefab: {fileID: 100100000, guid: f2dfb05d4ff3ae4438bdd50bea0c34df, type: 3}
 --- !u!4 &927259512 stripped
 Transform:
@@ -20428,7 +20499,6 @@ GameObject:
   - component: {fileID: 1583897589}
   - component: {fileID: 1583897588}
   - component: {fileID: 1583897587}
-  - component: {fileID: 1583897586}
   - component: {fileID: 1583897585}
   m_Layer: 5
   m_Name: Switch Pic Button
@@ -20473,19 +20543,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchImageButton: {fileID: 1583897588}
   targetImage: {fileID: 489690921}
---- !u!114 &1583897586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583897583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e6b67aca74dd4dbb8cd768b59130c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deleteButton: {fileID: 1583897588}
 --- !u!114 &1583897587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20500,15 +20557,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followsTheme: 1
   interactable: 1
-  buttonNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textNormalColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  buttonHoverColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderHoverColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textHoverColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  borderClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  textClickColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  buttonNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textNormalColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  buttonHoverColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderHoverColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textHoverColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  buttonClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  borderClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  textClickColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   text: Switch Pic
   borderWidth: 4
   roundness: 1
@@ -20581,7 +20638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -22153,7 +22210,7 @@ Transform:
   m_GameObject: {fileID: 1687258581}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -4.09}
+  m_LocalPosition: {x: -1.38, y: 1.5, z: -3.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22773,7 +22830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -24523,8 +24580,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4290295992
+  m_fontColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -28280,10 +28337,10 @@ Transform:
   - {fileID: 236339851280261538}
   - {fileID: 6247542079645021144}
   - {fileID: 3841977117943897806}
-  - {fileID: 236339850680693717}
-  - {fileID: 236339852156836014}
   - {fileID: 2750294299328985566}
+  - {fileID: 236339850680693717}
   - {fileID: 5881467090361658100}
+  - {fileID: 236339852156836014}
   m_Father: {fileID: 1559046101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &236339851248664848
@@ -28487,9 +28544,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 236339852156836015}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.124, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.24, z: 0.01}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.26, y: -0.021999957, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.47999993, z: 0.02}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 236339851248664847}
@@ -28829,7 +28886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28859,7 +28916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28889,7 +28946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -28919,7 +28976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29028,6 +29085,7 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 927259512}
   - {fileID: 2095956319}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
@@ -29116,7 +29174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &800309768759286066
 GameObject:
   m_ObjectHideFlags: 0
@@ -29224,8 +29282,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4290295992
+  m_fontColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29316,7 +29374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29439,8 +29497,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4290295992
+  m_fontColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29538,7 +29596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29618,7 +29676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29714,8 +29772,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4290295992
+  m_fontColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29885,8 +29943,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4290295992
+  m_fontColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -29958,7 +30016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31000,7 +31058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31030,7 +31088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31060,7 +31118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31090,7 +31148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31143,7 +31201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31173,7 +31231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31203,7 +31261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31233,7 +31291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31534,7 +31592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -32131,15 +32189,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followsTheme: 1
   interactable: 1
-  buttonNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textNormalColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  buttonHoverColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderHoverColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textHoverColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  borderClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  textClickColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  buttonNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textNormalColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  buttonHoverColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderHoverColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textHoverColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  buttonClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  borderClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  textClickColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   text: Delete
   borderWidth: 4
   roundness: 1
@@ -32315,8 +32373,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 723656782237774270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0055}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0110000335}
+  m_LocalScale: {x: 0.002, y: 0.0019999996, z: 0.002}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5299174952142914702}
@@ -32327,7 +32385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.024999999}
+  m_AnchoredPosition: {x: 0.23, y: -0.22}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2763265061514548833
@@ -32807,7 +32865,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!1 &3384143547614510000
 GameObject:
   m_ObjectHideFlags: 0
@@ -34959,7 +35017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -34989,7 +35047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -35019,7 +35077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -35049,7 +35107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -35116,15 +35174,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followsTheme: 1
   interactable: 1
-  buttonNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textNormalColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  buttonHoverColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  borderHoverColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  textHoverColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  borderClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  textClickColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  buttonNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textNormalColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  buttonHoverColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  borderHoverColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  textHoverColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  buttonClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  borderClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  textClickColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   text: Add Cube
   borderWidth: 4
   roundness: 1
@@ -35154,15 +35212,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followsTheme: 1
   interactable: 1
-  buttonNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textNormalColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  buttonHoverColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderHoverColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textHoverColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  borderClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  textClickColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  buttonNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textNormalColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  buttonHoverColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderHoverColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textHoverColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  buttonClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  borderClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  textClickColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   text: Add Text
   borderWidth: 4
   roundness: 1
@@ -35192,15 +35250,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followsTheme: 1
   interactable: 1
-  buttonNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textNormalColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  buttonHoverColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  borderHoverColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  textHoverColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  borderClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  textClickColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  buttonNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textNormalColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  buttonHoverColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  borderHoverColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  textHoverColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  buttonClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  borderClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  textClickColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   text: Add Gear
   borderWidth: 4
   roundness: 1
@@ -35230,15 +35288,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followsTheme: 1
   interactable: 1
-  buttonNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  borderNormalColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
-  textNormalColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  buttonHoverColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  borderHoverColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
-  textHoverColor: {r: 1, g: 1, b: 1, a: 1}
-  buttonClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  borderClickColor: {r: 0.28627452, g: 0.56078434, b: 0.92156863, a: 1}
-  textClickColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  buttonNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  borderNormalColor: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
+  textNormalColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  buttonHoverColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  borderHoverColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
+  textHoverColor: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 1}
+  buttonClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  borderClickColor: {r: 0.5568628, g: 0.39607844, b: 0.7490196, a: 1}
+  textClickColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   text: Add Sphere
   borderWidth: 4
   roundness: 1
@@ -36051,7 +36109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -36116,8 +36174,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283256141
-  m_fontColor: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+    rgba: 4290295992
+  m_fontColor: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -36734,7 +36792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 0.72156864, g: 0.72156864, b: 0.72156864, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -36939,7 +36997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7911569548207011266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37454,7 +37512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
+  m_Color: {r: 0.27058825, g: 0.27058825, b: 0.27058825, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -37484,7 +37542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.23529412}
+  m_Color: {r: 0.14901961, g: 0.14901961, b: 0.14901961, a: 0.23529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
